@@ -15,6 +15,8 @@
   top: 47.5vh;
   left: 47.5vw;
   border-radius:50%;
+  transition: all 0.1s;
+  box-shadow: 0px 0px 0px 50px rgba(255, 255, 255, 0.5);
 }
 
 #angleIndicator {
@@ -77,25 +79,121 @@
   background-color: rgba(55, 255,55, 0.5);
  }
 
- #arrowSpawner{
+ #arrowSpawner{ /* Change height here to change arrow size */
   width: 80vw;
   height: 10px;
   top: 2px;
   left: 10vw;
-  background: yellow;
-  opacity: 0.2;
+  /* background: yellow; */
   display: flex;
   flex-direction: row;
   align-items: center;
  }
 
  .spawnBox{
-  display: block;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   position: relative;
   width: 100%;
   height: 100%;
-  background: orange;
-  opacity: 0.2;
+ /*  border: 2px orange solid; */
+
  }
+
+ .arrowBackground {
+  background-color: rgba(255,255,55, 0.5);
+ }
+
+ .arrow{
+
+  position: fixed;
+  margin-left: -25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 50px;
+  height: 50px;
+
+  z-index: 1;
+  opacity: 1;
+ /*  border: 2px red solid; */
+
+  transition-timing-function: linear;
+  border-radius:50%;
+
+ }
+
+  #Left{
+  background: url("images/1469141117_Arrow_Drop_Down.svg") no-repeat;
+  background-size: 100%;
+  transform: rotate(90deg);
+  opacity: 1;
+
+  }
+  #Up{
+  background: url("images/1469141117_Arrow_Drop_Down.svg") no-repeat;
+  background-size: 100%;
+  transform: rotate(180deg);
+  opacity: 1;
+  }
+  #Down{
+  background: url("images/1469141117_Arrow_Drop_Down.svg") no-repeat;
+  background-size: 100%;
+  opacity: 1;
+  }
+  #Right{
+  background: url("images/1469141117_Arrow_Drop_Down.svg") no-repeat;
+  background-size: 100%;
+  transform: rotate(-90deg);
+  opacity: 1;
+  }
+
+  #phBack1{
+    background-color: white;
+    opacity: 0.5;
+    z-index: 1;
+    border: 2px inset black;
+    box-shadow: 0px 0px 0px 4px white;
+  }
+  #phBack2{
+    background-color: white;
+    opacity: 0.5;
+    z-index: 1;
+    border: 2px inset black;
+    box-shadow: 0px 0px 0px 4px white;
+  }
+  #phBack3{
+    background-color: white;
+    opacity: 0.5;
+    z-index: 1;
+    border: 2px inset black;
+    box-shadow: 0px 0px 0px 4px white;
+  }
+  #phBack4{
+    background-color: white;
+    opacity: 0.5;
+    z-index: 1;
+    border: 2px inset black;
+    box-shadow: 0px 0px 0px 4px white;
+  }
+
+  #rhythmZone {
+    bottom: 10vh;
+    width: 80vw;
+    height: 50px;
+    margin: 0px 10vw;
+   /*  background: rgba(100, 255, 100, 0.1); */
+    opacity: 0.5;
+    border-radius: 5px;
+    /* border: 2px rgba(155, 255, 155, 0.8) outset; */
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+
+  }
 
 

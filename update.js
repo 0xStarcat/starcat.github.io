@@ -11,7 +11,7 @@ $(document).ready(function(){
   rotationEquilibrium(); //flightControls.js
   clampRoll(); //flightControls.js
   clampPitch(); //flightControls.js
-  cockpitRumble(); //flightControls.js
+  //cockpitRumble(); //flightControls.js making me sick
   adjustFlightMeter(); //storyProgression.js
 
   }
