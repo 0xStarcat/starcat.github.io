@@ -4,26 +4,84 @@ console.log('story script Loaded');
   var gameLength = 125;
   var flightMeterFill = 80;
 
+  var $textNotification = undefined;
   var $flightMeterInner = $('#flightMeterInner')
+  var penalties = ['biologyExperiments','spaceHampsters','leftRoll','rightRoll','dorsalYaw','ventralYaw','powerCapacitors','aeronauticStabilizers']
 
-  var penalties = ['biologyExperiments','spaceMonkies','leftRoll','rightRoll','dorsalYaw','ventralYaw','powerCapacitors','aeronauticStabalizers']
-  var penaltyText = {
-    biologyExperiments : "",
-    spaceMonkies : "",
-    leftRoll : "",
-    rightRoll : "",
-    dorsalYaw : "",
-    ventralYaw : "",
-    powerCapacitors : "",
-    aeronauticStabalizers : ""
-  }
   var chosenPenalty = undefined;
 
 $(document).ready(function(){
 console.log('Story... check!');
 
+  $textNotification = $('#textNotification');
 });
 
+var setPenaltyText = function(){
+  chosenPenalty = Math.floor(Math.random() * penalties.length)
+  console.log(penalties[chosenPenalty]);
+  $textNotification.text(penaltyText[penalties[chosenPenalty]][0]);
+
+  $textNotification.animate({
+    'opacity': '1'
+  }, 2000, function(){
+
+    setTimeout(function(){
+
+      $textNotification.css({
+        'opacity' : '0'
+      })
+    }, 4000)
+  });
+
+
+}
+
+function showConsequence(result){
+
+  if (result === 'success')
+  {
+    console.log('showing success text');
+    $textNotification.text(penaltyText[penalties[chosenPenalty]][2]);
+
+    $textNotification.animate({
+    'opacity': '1'
+  }, 2000, function(){
+
+    setTimeout(function(){
+
+      $textNotification.css({
+        'opacity' : '0'
+      })
+    // Remove penalty from list
+      var removePenaltyAt = penalties.indexOf(penalties[chosenPenalty]);
+      penalties.splice(removePenaltyAt, 1);
+      console.log(penalties);
+    }, 4000)
+  });
+
+  } else {
+    console.log('showing failure text');
+    $textNotification.text(penaltyText[penalties[chosenPenalty]][1]);
+
+    $textNotification.animate({
+    'opacity': '1'
+  }, 2000, function(){
+
+    setTimeout(function(){
+
+      $textNotification.css({
+        'opacity' : '0'
+      })
+       // Remove penalty from list
+      var removePenaltyAt = penalties.indexOf(penalties[chosenPenalty]);
+      penalties.splice(removePenaltyAt, 1);
+      console.log(penalties);
+    }, 4000)
+  });
+
+  }
+
+}
 
 //See chart below for guide to setting gameLength.
 //miniGameInterval is how many MS between mini-games.

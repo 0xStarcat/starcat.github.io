@@ -220,4 +220,5 @@ html {
     text-align: center;
     top: 200px;
     background: rgba(55, 55, 55, 0.6);
+    opacity: 0;
   }

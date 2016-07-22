@@ -13,7 +13,7 @@ $(document).ready(function(){
   clampPitch(); //flightControls.js
   cockpitRumble(); //flightControls.js making me sick
   adjustFlightMeter(); //storyProgression.js
-  checkCounter(); //rhythm.js
+
 
   }
 

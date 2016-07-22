@@ -1,11 +1,9 @@
  var $arrowSpawner = $('#arrowSpawner');
- var $targetLeft = $('#phLeft');
- var $targetUp = $('#phUp');
- var $targetDown = $('#phDown');
- var $targetRight = $('#phRight');
+
  var $rhythmZone = $('#rhythmZone');
  var arrows = ['Left','Up','Down','Right'];
  var miniGameCounter = 5;
+ var miniGameActive = false;
 
  var rhythmZoneTop = $rhythmZone.position().top;
  var rhythmZoneBottom = $rhythmZone.position().top + $rhythmZone.innerHeight();
@@ -31,17 +29,14 @@ var createArrow = function(direction, speed){
   } else if (direction === 'Right'){
     theKey = 39;
   }
-
+if (miniGameActive)
+{
   var arrow =  $('<div class="arrow arrowBackground"></div><div class="arrow" id='+direction+'></div>');
 
     $('#q'+direction).append(arrow);
 
-    var arrowCenter = (arrow.position().top + arrow.innerHeight() / 2)
-
-
-
-
-      $(window).on('keydown', function(e){
+    var windowKeyEvent = $(window).on('keydown', function(e)
+    {
         if (isActive){
         //console.log('#######POSITION ########'+arrow.position().top)
         if (e.keyCode === theKey || e.which === theKey)
@@ -53,36 +48,23 @@ var createArrow = function(direction, speed){
             isActive = false;
             arrow.remove();
             arrow.stop();
+            delete windowKeyEvent;
+            delete arrow;
              //$(window).off('keydown');
           } else if (arrow.position().top >= rhythmZoneTop - 300){
             //console.log(direction+' #####Off rhythm!######');
-            miniGameCounter--;
+            miniGameCounter-=0.5;
+            checkCounter();
             $angleBox.css({
-              'box-shadow': '0px 0px 0px '+miniGameCounter+'0px rgba(255, 255, 255, 0.5)'
+              'box-shadow': '0px 0px 0px '+miniGameCounter*10+'px rgba(255, 255, 255, 0.5)'
             });
-
-            // $('#ph'+direction).css({
-            //   'background-color' : 'red'
-            // });
-            // setTimeout(function(){
-            //    $('#ph'+direction).css({
-            //   'background-color' : 'white'
-            // });
-            //  }, 250);
-
-            // $('#ph'+direction).animate({
-            //   'background-color' : 'red'
-            // }, 500)
-            // .animate({
-            //   'background-color' : 'white'
-            // }, 1000);
             isActive = false;
-            arrow.remove();
-            arrow.stop();
+
           }
         }
-        }
-      });
+      }
+    });
+
 
 //#######
 //If the animation reaches bottom, you get penalized. The animation is stopped with arrow.stop() if a condition
@@ -91,39 +73,52 @@ var createArrow = function(direction, speed){
   arrow.animate({
         'top': '100vh'
       }, speed, function(){
-        isActive=false;
+
         arrow.remove();
         //$(window).off('keydown');
-
-         miniGameCounter--;
-            $angleBox.css({
-              'box-shadow': '0px 0px 0px '+miniGameCounter+'0px rgba(255, 255, 255, 0.5)'
-            });
-
+        isActive=false;
+        delete windowKeyEvent;
+        delete arrow;
+        if (miniGameActive)
+        {
+          miniGameCounter-=0.5;
+          checkCounter();
+          $angleBox.css({
+            'box-shadow': '0px 0px 0px '+miniGameCounter*10+'px rgba(255, 255, 255, 0.5)'
+        });
+        }
       });
-
+  }
 };
 
-var checkCounter = function(){
+function checkCounter(){
+     if (miniGameCounter <= 0 && miniGameActive)
+    {
+      console.log('Lost Mini-Game');
 
-  if (miniGameCounter <= 0)
-  {
-    console.log('Lost Mini-Game');
-  }
+      clearGame();
+      showConsequence('fail');
+    } else if (miniGameCounter > 0 && !miniGameActive){
+      showConsequence('success');
+    }
 
 }
 
 var rhythmGame = function(length, speed){
+  miniGameActive = true;
+  var createRhythmZone = $('<div class ="spawnBox" id="pLeft"><div class="arrow arrowBackground" id="phLeft"></div><div class="arrow" id="Left"></div></div><div class ="spawnBox" id="pUp"><div class="arrow arrowBackground" id="phUp"></div><div class="arrow" id="Up"></div></div><div class ="spawnBox" id="pDown"><div class="arrow arrowBackground" id="phDown"></div><div class="arrow" id="Down"></div></div><div class ="spawnBox" id="pRight"><div class="arrow arrowBackground" id="phRight"></div><div class="arrow" id="Right"></div></div>');
+  $($rhythmZone).append(createRhythmZone);
+  addRhythmListeners();
 
 //#######
 //Create arrows at set intervals (speed) for a duration (length)
 //#######
-$angleBox.css({
+  $angleBox.css({
               'box-shadow': '0px 0px 0px 50px rgba(255, 255, 255, 0.5)'
             });
 
-miniGameCounter = 5;
-$angleBox.css({
+  miniGameCounter = 5;
+  $angleBox.css({
             'box-shadow': '0px 0px 0px 50px rgba(255, 255, 255, 0.5)'
           });
 
@@ -133,15 +128,35 @@ $angleBox.css({
     createArrow(arrows[randomNumber], speed);
     //console.log(arrows[randomNumber])
   }, speed);
+
+  //End the mini-game by clearing thimeout.
   setTimeout(function(){
-  clearTimeout(rhythmGameRun);
-  $angleBox.css({
-              'box-shadow': '0px 0px 0px 0px rgba(255, 255, 255, 0.5)'
-            });
+     clearInterval(rhythmGameRun);
+     clearGame();
   }, length);
 }
 
-var addRhythmListeners = function(){
+function clearGame(){
+
+    $angleBox.css({
+    'box-shadow': '0px 0px 0px 0px rgba(255, 255, 255, 0.5)'
+    });
+    $('.arrow').each(function(){
+      this.remove();
+    });
+    $('.arrowBackground').each(function(){
+      this.remove();
+    });
+    miniGameActive = false;
+    checkCounter();
+}
+
+function addRhythmListeners(){
+
+ var $targetLeft = $('#phLeft');
+ var $targetUp = $('#phUp');
+ var $targetDown = $('#phDown');
+ var $targetRight = $('#phRight');
 
   $(window).on('keydown', function(e){
     if (e.keyCode === 37 || e.which === 37)
@@ -203,4 +218,8 @@ var addRhythmListeners = function(){
 };
 
 
-setTimeout(function(){rhythmGame(30000, 2000)}, 4000);
+setTimeout(function()
+{
+  rhythmGame(30000, 2000)
+  setPenaltyText();
+}, 4000);
