@@ -6,17 +6,43 @@ console.log('story script Loaded');
 
   var $flightMeterInner = $('#flightMeterInner')
 
+  var penalties = ['biologyExperiments','spaceMonkies','leftRoll','rightRoll','dorsalYaw','ventralYaw','powerCapacitors','aeronauticStabalizers']
+  var penaltyText = {
+    biologyExperiments : "",
+    spaceMonkies : "",
+    leftRoll : "",
+    rightRoll : "",
+    dorsalYaw : "",
+    ventralYaw : "",
+    powerCapacitors : "",
+    aeronauticStabalizers : ""
+  }
+  var chosenPenalty = undefined;
+
 $(document).ready(function(){
 console.log('Story... check!');
 
 });
 
 
-//########
-//Move sky and ground over time.
-//########
-var shiftLandscape = setInterval(function() {
+//See chart below for guide to setting gameLength.
+//miniGameInterval is how many MS between mini-games.
+//miniGame Length is how long the miniGame lasts.
+//See chart in oneNote document for mini-game interval and length guide
 
+function startMainGame(gameLength, miniGameInterval, miniGameLength)
+{
+
+  var miniGameStart = setInterval(function(){
+
+  },miniGameInterval);
+
+
+//########
+//Move sky and ground over time. When ground is seen, game is won.
+//########
+  var shiftLandscape = setInterval(function() {
+    console.log('Main game starting!');
   //sky starts at Bottom: -200 ||| ground starts at Top: 300
   //Goal is to get sky Bottom: 40 ||| ground top: 60
   //So there are 240 Steps to make
@@ -47,33 +73,5 @@ var shiftLandscape = setInterval(function() {
   }
 }, gameLength);
 
-
-
-
-var adjustFlightMeter = function (){
-
-  if (!isOnTarget)
-    {
-      flightMeterFill -= 0.5;
-      $flightMeterInner.css({
-        'width' : flightMeterFill+'vw'
-      });
-    } else if (isOnTarget)
-    {
-      flightMeterFill += 0.5;
-      $flightMeterInner.css({
-        'width' : flightMeterFill+'vw'
-      });
-    }
-
-    if (flightMeterFill <= 0)
-    {
-      flightMeterFill = 0;
-      console.log('shuttle crashed! You lose!')
-      //alert('you lose!');
-    } else if (flightMeterFill >=80)
-    {
-      flightMeterFill = 80;
-    }
-
 }
+

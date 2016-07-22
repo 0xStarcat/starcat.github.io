@@ -334,3 +334,32 @@ function cockpitRumble(){
     'left' : '-2vw'
   },25);
 }
+
+var adjustFlightMeter = function (){
+
+  if (!isOnTarget)
+    {
+      flightMeterFill -= 0.5;
+      $flightMeterInner.css({
+        'width' : flightMeterFill+'vw'
+      });
+    } else if (isOnTarget)
+    {
+      flightMeterFill += 0.5;
+      $flightMeterInner.css({
+        'width' : flightMeterFill+'vw'
+      });
+    }
+
+    if (flightMeterFill <= 0)
+    {
+      flightMeterFill = 0;
+      console.log('shuttle crashed! You lose!')
+      //alert('you lose!');
+    } else if (flightMeterFill >=80)
+    {
+      flightMeterFill = 80;
+    }
+}
+
+

@@ -1,3 +1,7 @@
+html {
+  font-size: 24px;
+}
+
 *{
 
   display: inline;
@@ -16,7 +20,8 @@
   left: 47.5vw;
   border-radius:50%;
   transition: all 0.1s;
-  box-shadow: 0px 0px 0px 50px rgba(255, 255, 255, 0.5);
+
+  z-index: 1;
 }
 
 #angleIndicator {
@@ -151,28 +156,28 @@
   opacity: 1;
   }
 
-  #phBack1{
+  #phLeft{
     background-color: white;
     opacity: 0.5;
     z-index: 1;
     border: 2px inset black;
     box-shadow: 0px 0px 0px 4px white;
   }
-  #phBack2{
+  #phUp{
     background-color: white;
     opacity: 0.5;
     z-index: 1;
     border: 2px inset black;
     box-shadow: 0px 0px 0px 4px white;
   }
-  #phBack3{
+  #phDown{
     background-color: white;
     opacity: 0.5;
     z-index: 1;
     border: 2px inset black;
     box-shadow: 0px 0px 0px 4px white;
   }
-  #phBack4{
+  #phRight{
     background-color: white;
     opacity: 0.5;
     z-index: 1;
@@ -196,4 +201,23 @@
 
   }
 
+ /*  #textContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100vw;
+    background: rgba(55, 55, 55, 0.6);
+  } */
 
+  #textNotification {
+    height: 100px;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 100px;
+    color: white;
+    text-align: center;
+    top: 200px;
+    background: rgba(55, 55, 55, 0.6);
+  }
