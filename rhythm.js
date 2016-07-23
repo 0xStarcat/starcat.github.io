@@ -38,9 +38,11 @@ var createArrow = function(direction, speed){
   }
 if (miniGameActive)
 {
-  var arrow =  $('<div class="arrow arrowBackground"></div><div class="arrow" id='+direction+'></div>');
+  var arrowBackground =  $('<div class="arrow arrowBackground"></div>');
+  var arrow = $('<div class="arrow" id='+direction+'></div>');
 
-    $('#q'+direction).append(arrow);
+    $('#q'+direction).append(arrowBackground);
+    arrowBackground.append(arrow);
 
     var windowKeyEvent = $(window).on('keydown', function(e)
     {
@@ -51,12 +53,21 @@ if (miniGameActive)
           //console.log(direction+' pressed. ARROW CENTER = '+(arrow.position().top + arrow.innerHeight() / 2)+' ZONE BOTTOM = '+rhythmZoneBottom+ ' ZONE TOP = '+rhythmZoneTop)
           if ((arrow.position().top + arrow.innerHeight() / 2) <= rhythmZoneBottom + 5 && (arrow.position().top + arrow.innerHeight() / 2) >= rhythmZoneTop - 5)
           {
+
+            arrowBackground.css('background', 'green');
+            arrowBackground.stop();
+            arrowBackground.animate({
+              'opacity' : '0'
+            }, 750, function(){
+                isActive = false;
+                arrowBackground.remove();
+                
+                delete windowKeyEvent;
+                delete arrowBackground;
+            })
             //console.log(direction+' arrow in Rhythm!');
-            isActive = false;
-            arrow.remove();
-            arrow.stop();
-            delete windowKeyEvent;
-            delete arrow;
+           
+             
              //$(window).off('keydown');
           } else if (arrow.position().top >= rhythmZoneTop - 300){
             //console.log(direction+' #####Off rhythm!######');
@@ -77,15 +88,15 @@ if (miniGameActive)
 //If the animation reaches bottom, you get penalized. The animation is stopped with arrow.stop() if a condition
 // is met from above.
 //######
-  arrow.animate({
+  arrowBackground.animate({
         'top': '100vh'
       }, speed, function(){
 
-        arrow.remove();
+        arrowBackground.remove();
         //$(window).off('keydown');
         isActive=false;
         delete windowKeyEvent;
-        delete arrow;
+        delete arrowBackground;
         if (miniGameActive)
         {
           miniGameCounter-=0.5;

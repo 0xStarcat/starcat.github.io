@@ -257,3 +257,25 @@ html {
   .dead {
       background-color: rgba(255, 100, 100, 0.8);
   }
+
+
+#characterScreenContainer{
+  height: 100vw;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#charPortrait {
+  position: relative;
+  display: block;
+  height: 150px;
+  width: 150px;
+}
+
+input{
+  position: relative;
+  display: block;
+}
