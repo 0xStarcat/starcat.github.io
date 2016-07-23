@@ -25,11 +25,16 @@ var skyPitch = -200;  //bottom 40 for showcase //-200 for game
 var groundPitch = 300; //top 60               //300 for game
 
 //Speeds
-var targetSpeedX = 0.25;
-var targetSpeedY = 0.4;
+var targetSpeedX = 0.6;
+var targetSpeedY = 0.6;
 var rotateSpeed = 0.8;
 var equilibriumSpeed = 0.5;
 var ySpeed = 0.4;
+
+var movementMax = 3; //How much randomization for box movement (in px)
+var rumbleMax = 2; //How much the cockpit rumbles (in px);
+var rotateCockpitMax = 2;
+var unstableCockpit = false;
 
 var debug = false;
 
@@ -98,7 +103,7 @@ function moveTargetZone(){
 //#######
 //Moving the Target Zone
 //#######
-  var movementMax = 2; //px
+
   var moveCalcX = (Math.random() * movementMax) - (movementMax/2);
   var moveCalcY = (Math.random() * movementMax) - (movementMax/2);
 
@@ -321,7 +326,7 @@ function cockpitRumble(){
   //######
   //Randomize rumble amounts.
   //######
-  var rumbleMax = 2; //px
+
   var rumbleCalcX = (Math.random() * rumbleMax) - (rumbleMax/2);
   var rumbleCalcY = (Math.random() * rumbleMax) - (rumbleMax/2);
 
@@ -333,6 +338,21 @@ function cockpitRumble(){
     'top': '-2vh',
     'left' : '-2vw'
   },25);
+
+  if (unstableCockpit){
+     var rotateCockpitCalc = (Math.random() * rotateCockpitMax) - (rotateCockpitMax/2);
+
+    $cockpit.css({
+    'transform': 'rotate('+rotateCockpitCalc+'deg)'
+  });
+    setTimeout(function() {
+       $cockpit.css({
+      'transform': 'rotate(0deg)'
+    });
+    },25);
+
+
+  }
 }
 
 var adjustFlightMeter = function (){
