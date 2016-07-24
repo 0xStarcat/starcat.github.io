@@ -1,5 +1,7 @@
 
 var penaltyText = undefined;
+var penalties = ['biologyExperiments','spaceHamsters','rollJets','yawJets','powerCapacitors','aeronauticStabilizers']
+
 function loadPenaltyData()
 {
     penaltyText = {

@@ -353,7 +353,7 @@ function resetPage(){
   $flagPicture.attr('src', 'images/globe.png');
   $charPortrait.attr('src' , 'images/astronaut1.png');
   pictureIndex = 0;
-  $charName.text('Name');
+  $charName.val('< Name >');
   nationalityIndex = 0;
   $charNationality.val(' < Nationality > ');
   charAge = 35;

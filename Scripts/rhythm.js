@@ -31,8 +31,8 @@ var createArrow = function(direction, speed){
   }
 if (miniGameActive)
 {
-  var arrowBackground =  $('<div class="arrow arrowBackground"></div>');
-  var arrow = $('<div class="arrow" id='+direction+'></div>');
+  var arrowBackground =  $('<div class="arrow arrowBackground delete"></div>');
+  var arrow = $('<div class="arrow delete" id='+direction+'></div>');
 
     $('#q'+direction).append(arrowBackground);
     arrowBackground.append(arrow);
@@ -207,6 +207,11 @@ function checkCounter(){
 }
 
 var rhythmGame = function(length, speed){
+//Displays setPenalty text for 4 seconds
+//Then 10 seconds to choose teammate to send
+//Then game lasts for 'length'
+
+
   miniGameActive = true;
   someoneChosen = false;
 
@@ -276,7 +281,7 @@ function rainOfArrows(length, speed){
               'box-shadow': '0px 0px 0px 50px rgba(255, 255, 255, 0.5)'
             });
 
-    var rhythmGameRun = setInterval(function()
+    rhythmGameRun = setInterval(function()
     {
       var randomNumber = Math.floor(Math.random() * arrows.length)
       createArrow(arrows[randomNumber], arrowSpeed);
@@ -296,12 +301,15 @@ function rainOfArrows(length, speed){
 
 function clearGame(){
 
+  clearInterval(rhythmGameRun);
+
     $angleBox.css({
     'box-shadow': '0px 0px 0px 0px rgba(255, 255, 255, 0.5)'
     });
-    // $('.rhythm').each(function(){
-    //   this.remove();
-    // });
+    $('.delete').each(function(){
+      this.remove();
+
+    });
 
     $rhythmZone.hide();
     miniGameActive = false;

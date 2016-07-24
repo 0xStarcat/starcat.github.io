@@ -19,8 +19,8 @@ var sDown = false;
 
 var skyRotate = 0;
 var groundRotate = 0;
-var skyPitch = -200;  //bottom 40 for showcase //-200 for game
-var groundPitch = 300; //top 60               //300 for game
+var skyPitch = -280;
+var groundPitch = 300;
 
 //Speeds
 var targetSpeedX = 0.6;
@@ -227,13 +227,13 @@ function onTarget(){
       }
       isOnTarget = true;
       $angleBox.css({
-        'background-color' : 'rgba(255, 150, 150, 0.5)'
+        'background-color' : 'rgba(88, 255, 88, 0.3)'
       });
 
   } else {
     isOnTarget = false;
     $angleBox.css({
-        'background-color' : 'transparent'
+        'background-color' : 'rgba(255, 150,150,0.5'
       });
 
   }
@@ -299,28 +299,30 @@ function rotationEquilibrium(){
 
 function clampRoll(){
 
-  if (groundRotate > 50)
+  if (groundRotate > 15)
   {
-    groundRotate = 50;
-    skyRotate = 50;
-  } else if (skyRotate < -50){
+    groundRotate = 15;
+    skyRotate = 15;
+  } else if (skyRotate < (-15)){
 
-    groundRotate = -50;
-    skyRotate = -50;
+    groundRotate = -15;
+    skyRotate = -15;
   }
 }
 
 function clampPitch(){
 
-  if (groundPitch > 200)
-  {
-    groundPitch = 200;
-    skyPitch = -100;
-  } else if (groundPitch < 0){
+  //This function's use has depcracated now that the scenery is on tracks
 
-    groundPitch = 0;
-    skyPitch = 100;
-  }
+  // if (groundPitch > 200)
+  // {
+  //   groundPitch = 200;
+  //   skyPitch = -100;
+  // } else if (groundPitch < 0){
+
+  //   groundPitch = 0;
+  //   //skyPitch = 100;
+  // }
 }
 
 function cockpitRumble(){

@@ -26,6 +26,7 @@ var $rhythmZone = undefined;
 var rhythmZoneTop = undefined;
 var rhythmZoneBottom = undefined;
 var createRhythmZone = undefined;
+var rhythmGameRun = undefined; //timeout for minigame
 
 
 //MiniGame
@@ -63,6 +64,10 @@ var sidebar1String =undefined;
 var sidebar2String =undefined;
 var sidebar3String =undefined;
 var articleString =undefined;
+
+var startRumble = false;
+var startMeter = false;
+
 
 
 
@@ -141,7 +146,7 @@ function loadCreditsScreen(){
 
 function loadMainGame(){
 
-  var mainGameHTML = $('<div id="screenContainer"><div class="hud" id="angleTargetBox"></div><div class="hud" id="angleIndicator"></div><img id="cockpit" src = "images/cockpit_by_justinhaynes89-d7rp2yv.png"><!-- JustinHayes89 on DeviantArt http://justinhaynes89.deviantart.com/art/Cockpit-469783111 --><div id="sky"></div><div id="ground"></div><div class="meter hud" id="flightMeterOuter"></div><div class="meter hud" id="flightMeterInner"></div><div id="arrowSpawner"><div class ="spawnBox" id="qLeft"></div><div class ="spawnBox" id="qUp"></div><div class ="spawnBox" id="qDown"></div><div class ="spawnBox" id="qRight"></div></div><div id="rhythmZone"></div><div id="portraitZone"></div><div id = "textNotification"></div>')
+  var mainGameHTML = $('<div id="screenContainer"><div class="hud" id="angleTargetBox"></div><div class="hud" id="angleIndicator"></div><img id="cockpit" src = "images/cockpit_by_justinhaynes89-d7rp2yv.png"><!-- JustinHayes89 on DeviantArt http://justinhaynes89.deviantart.com/art/Cockpit-469783111 --><div id="sky"><div id="skyGradient"></div><img id="skyImage" src="http://img01.deviantart.net/d7a4/i/2012/289/c/2/sky_space_and_war__speedpaint__by_mitsukai_inki-d5i01wc.jpg"></div><div id="ground"><img id="groundImage src="https://i.publiclab.org/system/images/photos/000/010/647/original/Camp_665.jpg"></div><div class="meter hud" id="flightMeterOuter"></div><div class="meter hud" id="flightMeterInner"></div><div id="arrowSpawner"><div class ="spawnBox" id="qLeft"></div><div class ="spawnBox" id="qUp"></div><div class ="spawnBox" id="qDown"></div><div class ="spawnBox" id="qRight"></div></div><div id="rhythmZone"></div><div id="portraitZone"></div><div id = "textNotification"></div>')
   $('body').append(mainGameHTML);
 
 
@@ -182,7 +187,11 @@ function loadMainGame(){
 
   loadPenaltyData();
 
-  startMainGame(25, 30000, 15000);
+  //speed, interval, last
+  //remember that minigame lasts for 15 seconds + last
+  //0.11 = 3 minutes
+  startMainGame(0.07, 55000, 20000); //Short 3 min game, 3 mini games inside
+  //startMainGame(0.10, 55000, 20000); //Short game, 2 mini games inside
   startUpdate(1);
 
 
@@ -238,9 +247,37 @@ function loadNewsPaper(){
    $articleText.text(articleString);
 
    $restartButton.on('click', function(){
+    resetEverything();
     $('body').empty();
     loadStartScreen();
+
    })
+}
+
+function resetEverything(){
+  //Reset values
+  skyStep = 0;
+  skyPitch = -280;
+  //groundPitch = 300;
+  inAtmosphere = true;
+  endGame = false;
+  skyRotate = 0;
+
+  $sky.css({
+      'bottom': skyPitch+'vh'
+    })
+
+  $sky.css({
+    'transform': 'rotate('+skyRotate+'deg)',
+    });
+    // $ground.css({
+    //   'top': '300vh'
+    // })
+
+    flightMeterFill = 80;
+      $flightMeterInner.css({
+        'width' : flightMeterFill+'vw'
+      });
 }
 
 //##########

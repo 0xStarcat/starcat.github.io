@@ -14,7 +14,6 @@ html {
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -khtml-user-select: none;
   -ms-user-select: none;
 }
 
@@ -22,7 +21,7 @@ html {
 
   height: 6.5vw;
   width: 6.5vw;
-  border: 2px black solid;
+  border: 2px white solid;
   top: 47.5vh;
   left: 47.5vw;
   border-radius:50%;
@@ -53,15 +52,34 @@ html {
 
 #sky{
 
-  bottom: -200vh;
+  bottom: -280vh;
   left: -50vw;
   height: 400vh;
-  width: 800vw;
-  /* background: linear-gradient(to top, rgba(124, 230, 255, 1) 0.1%, rgba(66, 44, 44, 1) 99.9%); */
-  background: url('http://img01.deviantart.net/d7a4/i/2012/289/c/2/sky_space_and_war__speedpaint__by_mitsukai_inki-d5i01wc.jpg') no-repeat top left fixed;
+  width: 200vw;
+
   z-index: -1;
   transform-origin: 50vw 100%;
+  transition: all 2s;
   /* transform: rotate(5deg); */
+}
+
+#skyImage{
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  transition: all 2s;
+  z-index: 0;
+}
+
+#skyGradient{
+  background: linear-gradient(to top, rgba(127, 155, 255, 0.1), rgba(22, 22, 22, 0.6));
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  transition: all 2s;
+  z-index: 1;
 }
 
 #ground{
@@ -69,12 +87,24 @@ html {
   top: 300vh;
   left: -50vw;
   height: 100vh;
-  width: 800vw;
-  background: brown;
+  width: 400vw;
+
   z-index: -1;
   transform-origin: 50vw 0;
+  transition: all 2s;
 /*   transform: rotate(5deg);
  */}
+
+ #groundImage {
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  transition: all 2s;
+
+ }
 
  .meter{
   width: 80vw;
@@ -194,7 +224,7 @@ html {
   }
 
   #rhythmZone {
-    bottom: 150px;
+    bottom: 100px;
     width: 80vw;
     height: 10vw;
     margin: 0px 10vw;
@@ -240,7 +270,7 @@ html {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
    /*  background-color: rgba(255,255,175, 0.3); */
 
 
@@ -251,6 +281,10 @@ html {
     position: relative;
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .nameNationality{
@@ -271,6 +305,7 @@ html {
     display: block;
     height: 20%;
     width: 20%;
+    margin-right: 20px;
 
   }
 

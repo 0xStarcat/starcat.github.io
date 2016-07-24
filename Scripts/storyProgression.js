@@ -1,13 +1,14 @@
 console.log('story script Loaded');
 
   var inAtmosphere = true;
+  var skyStep = 0;
   var gameLength = 125;
   var flightMeterFill = 80;
-  var penalties = ['biologyExperiments','spaceHamsters','rollJets','yawJets','powerCapacitors','aeronauticStabilizers']
   var livingAstronauts = 4;
 
   var chosenPenalty = undefined;
-
+  var firstRhythmGame = undefined; //First timeout for rhythm game
+  var miniGameStart = undefined; //interval for rest of mini games
 $(document).ready(function(){
 console.log('Story... check!');
 
@@ -138,8 +139,13 @@ unstableCockpit = true;
 //miniGameInterval is how many MS between mini-games.
 //miniGame Length is how long the miniGame lasts.
 //See chart in oneNote document for mini-game interval and length guide
-//Goal is to get sky Bottom: 40 ||| ground top: 60
-  //So there are 240 Steps to make
+//Sky starts at -280
+//Goal is to get sky Bottom: 30 ||| ground top: 60
+  //So there are 250 steps to make with game updating every 50ms
+  //20 updates per second @ 50ms
+  //Set game length using skyStep variable - this is the amount the sky moves with each update frame
+  //skyStep = 0.11 = 3 minutes of gameplay
+
   //240 at 0.5/sec = 8 minutes = setInterval 2000ms
   //240 at 1/sec = 4 minutes = 1000ms
   //240 at 2/sec = 2 minutes = 500ms
@@ -152,55 +158,53 @@ unstableCockpit = true;
 function startMainGame(gameLength, miniGameInterval, miniGameLength)
 {
   console.log('Main game starting!');
+  resetEverything();
 
-  //Reset values
-  skyPitch = -200;
-  groundPitch = 300;
-  inAtmosphere = true;
-  endGame = false;
-  $sky.css({
-      'bottom': '-200vh'
-    })
-    $ground.css({
-      'top': '300vh'
-    })
 
-  var miniGameStart = setInterval(function(){
+
+  firstRhythmGame = setTimeout(function(){
+    //trigger first after 10 seconds
+    rhythmGame(miniGameLength);
+
+
+    //Then start regular interval
+    miniGameStart = setInterval(function(){
     rhythmGame(miniGameLength)
   },miniGameInterval);
 
-
-//########
-//Move sky and ground over time. When ground is seen, game is won.
-//########
-//gameLength Guide#############
- //sky starts at Bottom: -200 ||| ground starts at Top: 300
-  //Goal is to get sky Bottom: 40 ||| ground top: 60
-  //So there are 240 Steps to make
-  //240 at 0.5/sec = 8 minutes = setInterval 2000ms
-  //240 at 1/sec = 4 minutes = 1000ms
-  //240 at 2/sec = 2 minutes = 500ms
-  //240 at 4/sec = 1 minute = 250ms
-  var shiftLandscape = setInterval(function() {
+  },10000)
 
 
+
+//Only change this value when ready to start moving the sky. The function startLanding() is being called constantly
+//from update() with skyStep at 0 meaning no movement.
+  skyStep = gameLength;
+
+
+
+
+}
+
+function startLanding(){
+//Called every 50ms from update();
 
   if (inAtmosphere)
   {
-    skyPitch+=1;
-    groundPitch-=1;
+    skyPitch+=skyStep;
+    // groundPitch-=1;
     $sky.css({
       'bottom': skyPitch+'vh'
     });
 
-    $ground.css({
-      'top': groundPitch+'vh'
-    });
+    // $ground.css({
+    //   'top': groundPitch+'vh'
+    // });
 
-    if (skyPitch >= 40 && groundPitch <= 60)
+    // sky 40, ground 60
+    if (skyPitch >= (-30)) //&& groundPitch <= 100)
     {
-      skyPitch = 40;
-      groundPitch = 60;
+      skyPitch = -30;
+      //groundPitch = 100;
       inAtmosphere = false;
       console.log('Reached Earth')
 
@@ -212,7 +216,7 @@ function startMainGame(gameLength, miniGameInterval, miniGameLength)
 
     }
   }
-}, gameLength);
+
 
 }
 
@@ -266,9 +270,9 @@ function generateNewspaper(livingAstronauts, a1,a2,a3,a4,bio,hamster){
   if (livingAstronauts === 0)
   {
     headlineString = "Shuttle Disaster!";
-    sidebar1 = "Nations in mourning";
-    sidebar2 = "The President Speaks";
-    sidebar3 = "Bucky the Hamster Dies During Shuttle Mission";
+    sidebar1String = "Nations in mourning";
+    sidebar2String = "The President Speaks";
+    sidebar3String = "Bucky the Hamster Dies During Shuttle Mission";
 
   } else if (livingAstronauts === 4)
   {
@@ -344,9 +348,27 @@ function generateNewspaper(livingAstronauts, a1,a2,a3,a4,bio,hamster){
 }
 
 function winGame(){
-  startUpdate(0);
-  $('body').empty();
-   endOfGameReport();
+  clearInterval(miniGameStart);
+  clearTimeout(firstRhythmGame);
+  clearGame();
+
+    $textNotification.animate({
+      'opacity': '1'
+    }, 1000);
+    $textNotification.text('Welcome Home!');
+
+    $('body').animate({
+      'opacity' : '0'
+    },6000, function(){
+      startUpdate(0); //stop Update
+      $('body').empty();
+      endOfGameReport();
+      $('body').css('opacity', '1');
+      $textNotification.css('opacity','0');
+    });
+
+
+
 }
 
 function loseGame(){
@@ -357,9 +379,30 @@ function loseGame(){
   astronaut4.alive = false;
   penaltyText.biologyExperiments[4].alive = false;
   penaltyText.spaceHamsters[4].alive = false;
-  startUpdate(0);
-  $('body').empty();
-  endOfGameReport();
+
+
+  clearGame();
+
+   $textNotification.animate({
+      'opacity': '1'
+    }, 1000);
+    $textNotification.text('The crew compartment is breaking up!');
+    rumbleMax = 10;
+    unstableCockpit = true;
+    rotateCockpitMax = 10;
+
+    $('#skyGradient').css('background', 'rgba(255, 100, 100, 0.5)')
+
+    $('body').animate({
+
+      'opacity':'0'
+    },6000, function(){
+      startUpdate(0); //stop Update
+      $('body').empty();
+      endOfGameReport();
+      $('body').css('opacity', '1');
+      $textNotification.css('opacity','0');
+    });
 }
 
 
