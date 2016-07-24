@@ -3,15 +3,8 @@ console.log('story script Loaded');
   var inAtmosphere = true;
   var gameLength = 125;
   var flightMeterFill = 80;
-
-
-
-
-  // var penaltyFunctions = [aeronauticStabilizers];
-  // var penalties = ['aeronauticStabilizers']
-  //var penaltyFunctions = [biologyExperiments,spaceHamsters,rollJets,yawJets,powerCapacitors,aeronauticStabilizers]
   var penalties = ['biologyExperiments','spaceHamsters','rollJets','yawJets','powerCapacitors','aeronauticStabilizers']
-
+  var livingAstronauts = 4;
 
   var chosenPenalty = undefined;
 
@@ -100,10 +93,12 @@ function miniGameConsequence(result){
 
 function biologyExperiments(){
   console.log('Bio experiments destroyed');
+  penaltyText.biologyExperiments[4].alive = false;
 }
 
 function spaceHamsters(){
   console.log('Space hamsters lost');
+  penaltyText.spaceHamsters[4].alive = false;
 }
 
 function rollJets(){
@@ -143,6 +138,16 @@ unstableCockpit = true;
 //miniGameInterval is how many MS between mini-games.
 //miniGame Length is how long the miniGame lasts.
 //See chart in oneNote document for mini-game interval and length guide
+//Goal is to get sky Bottom: 40 ||| ground top: 60
+  //So there are 240 Steps to make
+  //240 at 0.5/sec = 8 minutes = setInterval 2000ms
+  //240 at 1/sec = 4 minutes = 1000ms
+  //240 at 2/sec = 2 minutes = 500ms
+  //240 at 4/sec = 1 minute = 250ms
+
+
+
+
 
 function startMainGame(gameLength, miniGameInterval, miniGameLength)
 {
@@ -185,17 +190,99 @@ function startMainGame(gameLength, miniGameInterval, miniGameLength)
       groundPitch = 60;
       inAtmosphere = false;
       console.log('Reached Earth')
+
+    if (!endGame)
+      {
+        winGame();
+        endGame = true;
+      }
+
     }
   }
 }, gameLength);
 
 }
 
-function transitionCharacterToMainGame(){
+function logDeath(who){
+  livingAstronauts--;
+  $('#portrait'+who).addClass('dead');
+  $('#portrait'+who+' img').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/8/88/Creative-Tail-danger.svg');
 
-  $('body').empty();
 
+  switch (who)
+  {
+    case 1:
+    {
+      astronaut1.alive = false;
+      break
+    }
+    case 2:
+    {
+      astronaut2.alive = false;
+      break
+    }
+    case 3:
+    {
+      astronaut3.alive = false;
+      break
+    }
+    case 4:
+    {
+      astronaut4.alive = false;
+      break
+    }
+  }
 }
+
+function endOfGameReport(){
+
+  console.log(livingAstronauts);
+  console.log('Astronaut1 is alive? '+astronaut1.alive);
+  console.log('Astronaut2 is alive? '+astronaut2.alive);
+  console.log('Astronaut3 is alive? '+astronaut3.alive);
+  console.log('Astronaut4 is alive? '+astronaut4.alive);
+  console.log('Cure for Common Cold is alive? '+penaltyText.biologyExperiments[4].alive);
+  console.log('Space Hampster alive?'+penaltyText.spaceHamsters[4].alive);
+
+
+  generateNewspaper();
+}
+
+function generateNewspaper(){
+
+  if (livingAstronauts === 0)
+  {
+    headlineString = "Shuttle Disaster!";
+
+  } else if (livingAstronauts === 4)
+  {
+    headlineString = "Shuttle Disaster!"
+  }
+
+
+
+  loadNewsPaper();
+}
+
+function winGame(){
+  startUpdate(0);
+  $('body').empty();
+   endOfGameReport();
+}
+
+function loseGame(){
+  livingAstronauts = 0;
+  astronaut1.alive = false;
+  astronaut2.alive = false;
+  astronaut3.alive = false;
+  astronaut4.alive = false;
+  penaltyText.biologyExperiments[4].alive = false;
+  penaltyText.spaceHamsters[4].alive = false;
+  startUpdate(0);
+  $('body').empty();
+  endOfGameReport();
+}
+
 
 
 

@@ -113,11 +113,11 @@ function addRhythmListeners(){
         'box-shadow': '0px 0px 0px 8px white'
       });
 
-        if (someoneChosen === false)
+        if (someoneChosen === false && astronaut1.alive)
         {
-          chosenAstronaut = 0;
+          chosenAstronaut = 1;
           someoneChosen = true;
-          console.log(chosenAstronaut + someoneChosen)
+           console.log(chosenAstronaut + someoneChosen)
         }
 
     } else if (e.keyCode === 38 || e.which === 38) //up
@@ -126,10 +126,11 @@ function addRhythmListeners(){
         opacity: 1,
         'box-shadow': '0px 0px 0px 8px white'
       });
-         if (someoneChosen === false)
+         if (someoneChosen === false && astronaut2.alive)
         {
-          chosenAstronaut = 1;
+          chosenAstronaut = 2;
           someoneChosen = true;
+           console.log(chosenAstronaut + someoneChosen)
         }
 
     } else if (e.keyCode === 39 || e.which === 39) //right
@@ -138,10 +139,11 @@ function addRhythmListeners(){
         opacity: 1,
         'box-shadow': '0px 0px 0px 8px white'
       });
-         if (someoneChosen === false)
+         if (someoneChosen === false && astronaut3.alive)
         {
-          chosenAstronaut = 3;
+          chosenAstronaut = 4;
           someoneChosen = true;
+           console.log(chosenAstronaut + someoneChosen)
         }
     } else if (e.keyCode === 40 || e.which === 40) //down
     {
@@ -150,10 +152,11 @@ function addRhythmListeners(){
         'box-shadow': '0px 0px 0px 8px white'
       });
 
-         if (someoneChosen === false)
+         if (someoneChosen === false && astronaut4.alive)
         {
-          chosenAstronaut = 2;
+          chosenAstronaut = 3;
           someoneChosen = true;
+           console.log(chosenAstronaut + someoneChosen)
         }
     }
   });
@@ -193,8 +196,7 @@ function checkCounter(){
      if (miniGameCounter <= 0 && miniGameActive)
     {
       console.log('Lost Mini-Game');
-      $('#portrait'+chosenAstronaut).addClass('dead');
-      $('#portrait'+chosenAstronaut+' img').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/8/88/Creative-Tail-danger.svg');
+      logDeath(chosenAstronaut);
       clearGame();
       miniGameConsequence('fail');
     } else if (miniGameCounter > 0 && !miniGameActive){

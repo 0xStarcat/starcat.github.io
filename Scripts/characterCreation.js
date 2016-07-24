@@ -9,10 +9,10 @@
 
 
 var flagPicturesIndex = flagPictures.length;
-var nameIndex = 0;
+var nameIndex = 0; //Didn't actually add randomized names due immensity of names required for ethnically appropriate pairings with 150+ countries
 var nationalityIndex = flagPicturesIndex;
 var charAge = 35;
-var backgroundIndex = 0;
+var backgroundIndex = -1;
 var characterPictures = [
 'images/astronaut1.png',
 'images/astronaut2.png',
@@ -24,9 +24,9 @@ var characterPictures = [
 'images/astronaut8.jpeg',
 'images/space-suit-309023_640.png'
 ];
-var pictureIndex = 0;
+var pictureIndex = -1;
 
-var quoteIndex = 0;
+var quoteIndex = -1;
 
 
 
@@ -279,7 +279,7 @@ function createCharacterEventListeners(){
 
   $submitButton.on('click', function(){
     console.log('submit button clicked!')
-
+     $(this).prop("disabled",true);
     //var parsedFlag = String('images/flags64/'+String($charNationality.val()+'-flag.png').replace(/\s/g,''));
     var parsedFlag = String('images/flags64/'+flagPictures[flagPicturesIndex]);
     console.log(parsedFlag);
@@ -292,7 +292,9 @@ function createCharacterEventListeners(){
       pageNumber++;
       $pageNumber.text('Astronaut '+pageNumber+'/4');
       $('#outerWrapper').animate({opacity: 0},250)
-      .animate({opacity: 1}, 500)
+      .animate({opacity: 1}, 500, function(){
+         $submitButton.prop("disabled",false);
+      });
       console.log(astronaut1);
       resetPage();
       break;
@@ -302,7 +304,9 @@ function createCharacterEventListeners(){
       pageNumber++;
       $pageNumber.text('Astronaut '+pageNumber+'/4');
       $('#outerWrapper').animate({opacity: 0},250)
-      .animate({opacity: 1}, 500)
+      .animate({opacity: 1}, 500, function(){
+         $submitButton.prop("disabled",false);
+      });
       console.log(astronaut2);
       resetPage();
       break;
@@ -312,7 +316,9 @@ function createCharacterEventListeners(){
       pageNumber++;
       $pageNumber.text('Astronaut '+pageNumber+'/4');
       $('#outerWrapper').animate({opacity: 0},250)
-      .animate({opacity: 1}, 500)
+      .animate({opacity: 1}, 500, function(){
+         $submitButton.prop("disabled",false);
+      });
       console.log(astronaut3);
       resetPage();
       break;
@@ -325,7 +331,7 @@ function createCharacterEventListeners(){
       $('body').animate({opacity: 0},2000,function(){
         $('body').empty();
         loadMainGame();
-        startMainGame(500, 30000, 15000);
+        // startMainGame(500, 30000, 15000);
         setTimeout(function(){
           $('body').animate({
             opacity: 1
@@ -376,7 +382,7 @@ function NewCharacter(name, nationality, flag, age, background, quote, picture) 
   this.background = background,
   this.quote = quote,
   this.picture = characterPictures[pictureIndex],
-  this.status = 'alive'
+  this.alive = true
 
 }
 

@@ -2,11 +2,9 @@
 var penaltyText = undefined;
 function loadPenaltyData()
 {
-
-
     penaltyText = {
-    biologyExperiments : ["Biology experiments overheating!", "Biology experiments lost", "Biology experiments saved!", biologyExperiments],
-    spaceHamsters : ["Space Hamster's life support failing.", "Space Hamsters lost!", "Space Hamsters are safe!",spaceHamsters],
+    biologyExperiments : ["Biology experiments overheating!", "Biology experiments lost", "Biology experiments saved!", biologyExperiments, {alive: true}],
+    spaceHamsters : ["Space Hamster's life support failing.", "Space Hamsters lost!", "Space Hamsters are safe!",spaceHamsters, {alive: true}],
     rollJets : ["Roll Jets malfunctioning!", "Roll Jets non-functional!", "Roll Jets repaired!",rollJets],
     yawJets : ["Yaw Jets malfunctioning!", "Yaw Jet non-functional!", "Yaw Jets repaired!",yawJets],
     powerCapacitors : ["Power Capacitors overloading!", "Power Capacitors are overloaded!", "Power Capacitors re-routed!",powerCapacitors],
@@ -15,7 +13,7 @@ function loadPenaltyData()
 }
 
 var characterbackgrounds = ['Physicist', 'Pilot', 'Engineer', 'Physician', 'Teacher', 'Web Developer', 'Chemist', 'Business'];
-var characterQuotes = ["“It was a texture. The blackness was so intense.”",
+var characterQuotes = [
 "“To infinity - and beyond!”",
 "“Time is a flat circle”",
 "“Welcome to Earth!”",
@@ -26,6 +24,7 @@ var characterQuotes = ["“It was a texture. The blackness was so intense.”",
 "“I had the ambition to not only go farther than man had gone before, but to go as far as it was possible to go.”",
 "“Following the light of the sun, we left the Old World.”",
 "“I can't live the rest of my life talking about what I did in space for 11 days.”",
+'“It was a texture. The blackness was so intense.”',
 "“Just hold on, we're going home.”",
 "“The stars look very different today.”"
  ];

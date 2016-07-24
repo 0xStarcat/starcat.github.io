@@ -1,0 +1,90 @@
+#newspaperWrapper {
+  height: 100vh;
+  width: 100vw;
+
+
+}
+
+#newspaperBackground {
+  background: url(../images/blank-newspaper-front-page-template-p2c-info-Twnr84-clipart.jpg) no-repeat scroll;
+  background-size: 100%;
+  background-position: left top;
+  background-attachment: scroll;
+  height: 100%;
+  width: 100%;
+}
+
+#newspaperName{
+  border: 2px yellow solid;
+  position: relative;
+  display: block;
+  text-align: center;
+  font-size: 44px;
+  line-height: 110%;
+  height: 50px;
+  width: 200px;
+  top: 4vw;
+  left: 29vw;
+  font-size: 10vw;
+}
+
+#headline {
+  border: 2px red solid;
+  position: relative;
+  display: block;
+  font-size: 3.2vw;
+  line-height: 110%;
+  height: 6vw;
+  width: 55vw;
+  top: 11vw;
+  left: 22vw;
+  text-align: justify;
+}
+
+#headlineText{
+  position: relative;
+  display: block;
+}
+
+#articleContainer{
+  border: 2px orange solid;
+  position: relative;
+  display: block;
+  text-align: center;
+  font-size: 1.8vw;
+  line-height: 110%;
+  height: 60vw;
+  width: 50vw;
+  top: 21vh;
+  left: 22vw;
+  text-align: justify;
+
+}
+
+#articleText{
+  position: relative;
+  display: block;
+}
+
+#sidebarColumn{
+  border: 2px blue solid;
+  position: fixed;
+  display: block-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2vw;
+  line-height: 200%;
+  height: 40vw;
+  width: 14vw;
+  top: 20vw;
+  left: 7vw;
+}
+
+.sidebarItem{
+  position: relative;
+  display: block;
+  border: 2px green dotted;
+  height: 13vw;
+}

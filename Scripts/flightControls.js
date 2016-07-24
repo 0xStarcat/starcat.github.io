@@ -29,13 +29,14 @@ var rotateSpeed = 0.8;
 var equilibriumSpeed = 0.5;
 var ySpeed = 0.4;
 
-var movementMax = 3; //How much randomization for box movement (in px)
+var movementMax = 2; //How much randomization for box movement (in px)
 var rumbleMax = 2; //How much the cockpit rumbles (in px);
 var rotateCockpitMax = 2;
 var unstableCockpit = false;
 
 var debug = false;
 
+var endGame = false;
 
 
 $(document).ready(function(){
@@ -375,6 +376,13 @@ var adjustFlightMeter = function (){
     {
       flightMeterFill = 0;
       console.log('shuttle crashed! You lose!')
+
+      if (!endGame)
+      {
+        loseGame();
+        endGame = true;
+      }
+
       //alert('you lose!');
     } else if (flightMeterFill >=80)
     {

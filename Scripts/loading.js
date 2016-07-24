@@ -49,6 +49,21 @@ var $charAge = undefined;
 var $charBackground = undefined;
 var $charQuote = undefined;
 
+//NewsPaper
+var $newspaper = undefined;
+var $headline = undefined;
+var $sidebar1 = undefined;
+var $sidebar2 = undefined;
+var $sidebar3 = undefined;
+var $articleText = undefined;
+
+var headlineString = undefined;
+var sidebar1String =undefined;
+var sidebar2String =undefined;
+var sidebar3String =undefined;
+var articleString =undefined;
+
+
 
 $(document).ready(function(){
 
@@ -125,7 +140,7 @@ function loadCreditsScreen(){
 
 function loadMainGame(){
 
-  var mainGameHTML = $('<div id="screenContainer"><div class="hud" id="angleTargetBox"></div><div class="hud" id="angleIndicator"></div><img id="cockpit" src = "http://orig00.deviantart.net/cf70/f/2014/202/b/e/cockpit_by_justinhaynes89-d7rp2yv.png"><!-- JustinHayes89 on DeviantArt http://justinhaynes89.deviantart.com/art/Cockpit-469783111 --><div id="sky"></div><div id="ground"></div><div class="meter hud" id="flightMeterOuter"></div><div class="meter hud" id="flightMeterInner"></div><div id="arrowSpawner"><div class ="spawnBox" id="qLeft"></div><div class ="spawnBox" id="qUp"></div><div class ="spawnBox" id="qDown"></div><div class ="spawnBox" id="qRight"></div></div><div id="rhythmZone"></div><div id="portraitZone"></div><div id = "textNotification"></div>')
+  var mainGameHTML = $('<div id="screenContainer"><div class="hud" id="angleTargetBox"></div><div class="hud" id="angleIndicator"></div><img id="cockpit" src = "images/cockpit_by_justinhaynes89-d7rp2yv.png"><!-- JustinHayes89 on DeviantArt http://justinhaynes89.deviantart.com/art/Cockpit-469783111 --><div id="sky"></div><div id="ground"></div><div class="meter hud" id="flightMeterOuter"></div><div class="meter hud" id="flightMeterInner"></div><div id="arrowSpawner"><div class ="spawnBox" id="qLeft"></div><div class ="spawnBox" id="qUp"></div><div class ="spawnBox" id="qDown"></div><div class ="spawnBox" id="qRight"></div></div><div id="rhythmZone"></div><div id="portraitZone"></div><div id = "textNotification"></div>')
   $('body').append(mainGameHTML);
 
 
@@ -140,7 +155,7 @@ function loadMainGame(){
   $flightMeterInner = $('#flightMeterInner');
   $portraitZone = $('#portraitZone');
   //$portraits = $('<div class="portraitContainer" id="portrait0"><img class="portrait" src='+astronaut1.picture+'></div><div class="portraitContainer" id="portrait1"><img class="portrait" src='+astronaut2.picture+'></div><div class="portraitContainer" id="portrait2"><img class="portrait" src='+astronaut3.picture+'></div><div class="portraitContainer" id="portrait3"><img class="portrait" src='+astronaut4.picture+'></div>');
-  $portraits = $('<div class="characterContainer"><div class="portraitContainer" id="portrait0"><img class="portrait" src='+astronaut1.picture+'></div><div class="nameNationality" id="name1">'+astronaut1.name+'<img class="flagIcon" id="flag1" src='+astronaut1.flag+'></div></div><div class="characterContainer"><div class="portraitContainer" id="portrait1"><img class="portrait" src='+astronaut2.picture+'></div><div class="nameNationality" id="name2">'+astronaut2.name+'<img class="flagIcon" id="flag2" src='+astronaut2.flag+'></div></div><div class="characterContainer"><div class="portraitContainer" id="portrait2"><img class="portrait" src='+astronaut3.picture+'></div><div class="nameNationality" id="name3">'+astronaut3.name+'<img class="flagIcon" id="flag3" src='+astronaut3.flag+'></div></div><div class="characterContainer"><div class="portraitContainer" id="portrait3"><img class="portrait" src='+astronaut4.picture+'></div><div class="nameNationality" id="name4">'+astronaut4.name+'<img class="flagIcon" id="flag4" src='+astronaut4.flag+'></div></div>')
+  $portraits = $('<div class="characterContainer"><div class="portraitContainer" id="portrait1"><img class="portrait" src='+astronaut1.picture+'></div><div class="nameNationality" id="name1">'+astronaut1.name+'<img class="flagIcon" id="flag1" src='+astronaut1.flag+'></div></div><div class="characterContainer"><div class="portraitContainer" id="portrait2"><img class="portrait" src='+astronaut2.picture+'></div><div class="nameNationality" id="name2">'+astronaut2.name+'<img class="flagIcon" id="flag2" src='+astronaut2.flag+'></div></div><div class="characterContainer"><div class="portraitContainer" id="portrait3"><img class="portrait" src='+astronaut3.picture+'></div><div class="nameNationality" id="name3">'+astronaut3.name+'<img class="flagIcon" id="flag3" src='+astronaut3.flag+'></div></div><div class="characterContainer"><div class="portraitContainer" id="portrait4"><img class="portrait" src='+astronaut4.picture+'></div><div class="nameNationality" id="name4">'+astronaut4.name+'<img class="flagIcon" id="flag4" src='+astronaut4.flag+'></div></div>')
 
     $portraitZone.append($portraits);
     $portraits.hide();
@@ -165,6 +180,8 @@ function loadMainGame(){
   addRhythmListeners();
 
   loadPenaltyData();
+
+  startMainGame(25, 30000, 15000);
   startUpdate(1);
 
 
@@ -197,7 +214,26 @@ function loadCharacterCreation(){
   $charQuote = $('.charQuote');
 
   createCharacterEventListeners();
+
   resetPage()
+}
+
+function loadNewsPaper(){
+  $newspaper = $('<div id = "newspaperWrapper"><img id ="newspaperBackground" src=""><div id="newspaperName">The</div><div id = "headline"><div id="headlineText">HEADLINE NEWS HAPPENING NOW</div></div><div id="articleContainer"><div id="articleText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div></div><div id = "sidebarColumn"><div class="sidebarItem" id="sb1" >Lorem ipsum dolor sit amet</div><div class="sidebarItem" id="sb2">Lorem ipsum dolor sit amet</div><div class="sidebarItem" id="sb3">Lorem ipsum dolor sit amet</div></div></div>');
+
+    $('body').append($newspaper);
+
+   $headline = $('#headlineText');
+   $sidebar1 = $('#sb1');
+   $sidebar2 = $('#sb2');
+   $sidebar3 = $('#sb3');
+   $articleText = $('#articleText');
+
+   $headline.text(headlineString);
+   $sidebar1.text(sidebar1String);
+   $sidebar2.text(sidebar2String);
+   $sidebar3.text(sidebar3String);
+   $articleText.text(articleString);
 }
 
 //##########
