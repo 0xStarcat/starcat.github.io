@@ -328,17 +328,8 @@ function createCharacterEventListeners(){
       console.log(astronaut4);
       console.log('start main game!');
       resetPage();
-      $('body').animate({opacity: 0},2000,function(){
-        $('body').empty();
-        loadMainGame();
-        // startMainGame(500, 30000, 15000);
-        setTimeout(function(){
-          $('body').animate({
-            opacity: 1
-          }, 2000)
-        })
-      });
-
+      $('body').empty();
+      fakeLoadingScreen();
       break;
     }
 

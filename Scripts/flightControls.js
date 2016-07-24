@@ -42,12 +42,6 @@ var endGame = false;
 $(document).ready(function(){
 console.log('Flight Controls... check!');
 
-
-
-
-
-
-
 });
 
 function setFlightEventListeners()
@@ -103,6 +97,7 @@ function setFlightEventListeners()
 function moveTargetZone(){
 //#######
 //Moving the Target Zone
+//Called from Update (every 50ms)
 //#######
 
   var moveCalcX = (Math.random() * movementMax) - (movementMax/2);
@@ -120,6 +115,7 @@ function controlShuttle() {
 
 //########
 //Moving the Shuttle
+//Called from Update (every 50ms)
 //########
 
   if (aLeft === true)
@@ -195,7 +191,9 @@ function trackCoordinates(){
 
   //#######
   //Finding Center
+  //Called from Update (every 50ms)
   //#######
+
   indicatorCenterX = $angleIndicator.position().left + ($angleIndicator.innerWidth() / 2);
   indicatorCenterY = $angleIndicator.position().top + ($angleIndicator.innerHeight() / 2);
   targetLeft = $angleBox.position().left;
@@ -208,6 +206,7 @@ function onTarget(){
 
 //########
 //Checking for Indicator on Target
+//Called from Update (every 50ms)
 //########
 
   if (debug)
@@ -243,7 +242,9 @@ function onTarget(){
 function rotationEquilibrium(){
   //#######
   //Return rotation to equilibrium (0) gradually always
+  //Called from Update (every 50ms)
   //#######
+
   if (groundRotate > 0.1 || groundRotate < -0.1)
   {
     //console.log('Rotation: '+groundRotate)
@@ -298,6 +299,7 @@ function rotationEquilibrium(){
 }
 
 function clampRoll(){
+  //Called from Update (every 50ms)
 
   if (groundRotate > 15)
   {
@@ -311,8 +313,9 @@ function clampRoll(){
 }
 
 function clampPitch(){
+  //Called from Update (every 50ms)
 
-  //This function's use has depcracated now that the scenery is on tracks
+  //This function's use has depcracated now that the scenery's route is on tracks
 
   // if (groundPitch > 200)
   // {
@@ -328,6 +331,7 @@ function clampPitch(){
 function cockpitRumble(){
   //######
   //Randomize rumble amounts.
+  //Called from Update (every 50ms)
   //######
 
   var rumbleCalcX = (Math.random() * rumbleMax) - (rumbleMax/2);
@@ -359,6 +363,10 @@ function cockpitRumble(){
 }
 
 var adjustFlightMeter = function (){
+  //##############
+  //Track player performance, win/lose
+  //Called from Update (every 50ms)
+  //#############
 
   if (!isOnTarget && !endGame)
     {
@@ -385,7 +393,6 @@ var adjustFlightMeter = function (){
         endGame = true;
       }
 
-      //alert('you lose!');
     } else if (flightMeterFill >=80)
     {
       flightMeterFill = 80;

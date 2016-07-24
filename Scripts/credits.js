@@ -4,3 +4,4 @@
 //Astronaut images from: http://www.clipartlord.com/ labeled for free reuse without attribution
 //flags from: http://www.customicondesign.com/free-icons/flag-icon-set/all-in-one-country-flag-icon-set/ labeld free for reuse without attribution
 //newspaper from clipartkid.com licensed free without attribution
+//Re-entry diagrams from http://quarkology.com/12-physics/92-space/images/92D-re-entry.png

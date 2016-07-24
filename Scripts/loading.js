@@ -50,6 +50,10 @@ var $charAge = undefined;
 var $charBackground = undefined;
 var $charQuote = undefined;
 
+//Fake Loading Screen
+var $fakeLoadText = undefined;
+var $fakeLoadImage = undefined;
+
 //NewsPaper
 var $newspaper = undefined;
 var $headline = undefined;
@@ -121,7 +125,7 @@ function loadStartScreen(){
 }
 
 function loadCreditsScreen(){
-  var creditScreenHTML = $('<div id="startScreenContainer"><div id="startScreenGradient"><button class="screenButton" id ="backButton">Back</button><div id="creditsScreen"><p class="creditsSpan">Made by</p><p class="creditsLine">Jeff</p><p class="creditsSpan">Cockpit Image by</p><p class="creditsLine">Justin Haynes - http://justinhaynes89.deviantart.com<br></p><p class="creditsSpan">Space Background by: </p><p class="creditsLine">Mitsukai Inki - deviantArt http://mitsukai-inki.deviantart.com/</p><p class="creditsSpan">All other images</p><p class="creditsLine">Licensed for free use without attribution<br></p></div></div></div>');
+  var creditScreenHTML = $('<div id="startScreenContainer"><div id="startScreenGradient"><button class="screenButton" id ="backButton">Back</button><div id="creditsScreen"><p class="creditsSpan">Made by</p><p class="creditsLine">Jeff Ahking</p><p class="creditsSpan">Cockpit Image by</p><p class="creditsLine">Justin Haynes - http://justinhaynes89.deviantart.com<br></p><p class="creditsSpan">Space Background by </p><p class="creditsLine">Mitsukai Inki - deviantArt http://mitsukai-inki.deviantart.com/</p><p class="creditsSpan">All other images</p><p class="creditsLine">Licensed for free use without attribution<br></p></div></div></div>');
   $('body').append(creditScreenHTML);
 
   $backButton = $('#backButton');
@@ -276,6 +280,58 @@ function loadCharacterCreation(){
   resetPage()
 }
 
+function fakeLoadingScreen(){
+
+  console.log('fake loading screen... nice work')
+  $fakeLoadText = $('#fakeLoadText');
+  $fakeLoadImage = $('#fakeLoadImage');
+  setTimeout(function(){
+    $fakeLoadImage.animate({
+      opacity: 0
+    }, 1000, function(){
+      $fakeLoadImage.attr('src', 'images/real-airplane-with-banner-physics_airplanes_2.png')
+      $fakeLoadImage.animate({
+        opacity: 1
+      }, 1000);
+    });
+  },5000);
+
+    var dotDotDot = '';
+    var doTheDot = function(){
+      dotDotDot+='.'
+      $fakeLoadText.text('Loading'+dotDotDot);
+      if (dotDotDot === '....')
+      {
+        dotDotDot = '';
+        $fakeLoadText.text('Loading'+dotDotDot);
+      }
+    }
+
+    var dotInterval = setInterval(function(){
+      doTheDot();
+    }, 1000);
+
+    setTimeout(function(){
+
+      clearInterval(dotInterval);
+      $fakeLoadText.text('Done');
+        $('body').animate({opacity: 0},2000,function(){
+        $('body').empty();
+        loadMainGame();
+        // startMainGame(500, 30000, 15000);
+        setTimeout(function(){
+          $('body').animate({
+            opacity: 1
+          }, 2000)
+        })
+      });
+
+
+    }, 10000);
+}
+
+fakeLoadingScreen();
+
 function loadNewsPaper(){
   $newspaper = $('<div id = "newspaperWrapper"><img id ="newspaperBackground" src=""><div id="newspaperName">The</div><div id = "headline"><div id="headlineText">HEADLINE NEWS HAPPENING NOW</div></div><div id="articleContainer"><div id="articleText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div></div><div id = "sidebarColumn"><div class="sidebarItem" id="sb1" >Lorem ipsum dolor sit amet</div><div class="sidebarItem" id="sb2">Lorem ipsum dolor sit amet</div><div class="sidebarItem" id="sb3">Lorem ipsum dolor sit amet</div></div><button class="screenButton" id="restartGame">Restart?</button></div>');
 
@@ -332,6 +388,6 @@ function resetEverything(){
 //LOAD START SCREEN ON PAGE LOAD
 //##########
 
-$('body').empty();
-loadStartScreen();
+// $('body').empty();
+// loadStartScreen();
 

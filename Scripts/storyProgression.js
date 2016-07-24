@@ -253,14 +253,12 @@ function logDeath(who){
 
 function endOfGameReport(){
 
-
   console.log('Astronaut1 is alive? '+astronaut1.alive);
   console.log('Astronaut2 is alive? '+astronaut2.alive);
   console.log('Astronaut3 is alive? '+astronaut3.alive);
   console.log('Astronaut4 is alive? '+astronaut4.alive);
   console.log('Cure for Common Cold is alive? '+penaltyText.biologyExperiments[4].alive);
   console.log('Space Hampster alive?'+penaltyText.spaceHamsters[4].alive);
-
 
   generateNewspaper(livingAstronauts,astronaut1.alive,astronaut2.alive,astronaut3.alive,astronaut4.alive,penaltyText.biologyExperiments[4].alive,penaltyText.spaceHamsters[4].alive );
 }
@@ -290,7 +288,7 @@ function generateNewspaper(livingAstronauts, a1,a2,a3,a4,bio,hamster){
               sidebar3String = "Vaccine Developed on Shuttle Shows Promise";
             } else if (!bio)
             {
-              sidebar3String = "Cancer May Cause Cancer, Study Finds";
+              sidebar3String = "Falling in Love Causes Cancer, Study Finds";
             }
   } else {
 
@@ -341,8 +339,6 @@ function generateNewspaper(livingAstronauts, a1,a2,a3,a4,bio,hamster){
       }
     }
   }
-
-
 
   loadNewsPaper();
 }

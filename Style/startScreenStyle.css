@@ -146,17 +146,17 @@ body{
   position: relative;
   display: block;
   align-self: inherit;
-  line-height: 160%;
+  line-height: 100%;
   font-size: 32px;
+  margin-top: 2%;
 
-  top: -3%;
 
 
 }
 .creditsLine{
   position: relative;
   display: block;
-  line-height: 140%;
+  line-height: 200%;
   font-size: 22px;
   color: rgba(222, 222, 200, 1);
 

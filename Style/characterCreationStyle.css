@@ -193,5 +193,38 @@
   width: 20vw;
   margin: 0 40vw;
   /* border: 2px black dotted; */
+}
 
+#fakeLoadWrapper{
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  border: 2px orange solid;
+
+}
+
+#fakeLoadImageContainer{
+  display: block;
+  position: fixed;
+  height: 50vh;
+  width: 80vw;
+  top: 10vh;
+  left: 10vw;
+
+}
+#fakeLoadImage{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+}
+
+#fakeLoadText{
+  height: 25vh;
+  width: 100vw;
+  bottom: 0px;
+  font-size: 64px;
+  line-height: 200%;
+   color: white;
+   text-align: center;
 }
