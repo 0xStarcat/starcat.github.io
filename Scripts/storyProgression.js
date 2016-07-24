@@ -153,6 +153,18 @@ function startMainGame(gameLength, miniGameInterval, miniGameLength)
 {
   console.log('Main game starting!');
 
+  //Reset values
+  skyPitch = -200;
+  groundPitch = 300;
+  inAtmosphere = true;
+  endGame = false;
+  $sky.css({
+      'bottom': '-200vh'
+    })
+    $ground.css({
+      'top': '300vh'
+    })
+
   var miniGameStart = setInterval(function(){
     rhythmGame(miniGameLength)
   },miniGameInterval);
@@ -170,6 +182,7 @@ function startMainGame(gameLength, miniGameInterval, miniGameLength)
   //240 at 2/sec = 2 minutes = 500ms
   //240 at 4/sec = 1 minute = 250ms
   var shiftLandscape = setInterval(function() {
+
 
 
   if (inAtmosphere)
@@ -236,7 +249,7 @@ function logDeath(who){
 
 function endOfGameReport(){
 
-  console.log(livingAstronauts);
+
   console.log('Astronaut1 is alive? '+astronaut1.alive);
   console.log('Astronaut2 is alive? '+astronaut2.alive);
   console.log('Astronaut3 is alive? '+astronaut3.alive);
@@ -245,18 +258,84 @@ function endOfGameReport(){
   console.log('Space Hampster alive?'+penaltyText.spaceHamsters[4].alive);
 
 
-  generateNewspaper();
+  generateNewspaper(livingAstronauts,astronaut1.alive,astronaut2.alive,astronaut3.alive,astronaut4.alive,penaltyText.biologyExperiments[4].alive,penaltyText.spaceHamsters[4].alive );
 }
 
-function generateNewspaper(){
+function generateNewspaper(livingAstronauts, a1,a2,a3,a4,bio,hamster){
 
   if (livingAstronauts === 0)
   {
     headlineString = "Shuttle Disaster!";
+    sidebar1 = "Nations in mourning";
+    sidebar2 = "The President Speaks";
+    sidebar3 = "Bucky the Hamster Dies During Shuttle Mission";
 
   } else if (livingAstronauts === 4)
   {
-    headlineString = "Shuttle Disaster!"
+    headlineString = "Wookie Discovered in Texas!";
+    sidebar1String = "Sports Game Delay Causes Riot.";
+      if (hamster)
+            {
+              sidebar2String = "Bucky the Hamster Returns from Space!";
+            } else if (!hamster)
+            {
+              sidebar2String = "Bucky the Hamster Dies During Shuttle Mission.";
+            }
+      if (bio)
+            {
+              sidebar3String = "Vaccine Developed on Shuttle Shows Promise";
+            } else if (!bio)
+            {
+              sidebar3String = "Cancer May Cause Cancer, Study Finds";
+            }
+  } else {
+
+
+    switch (livingAstronauts)
+    {
+      case 1:
+      {
+        headlineString = "Astronaut Killed During Mission!";
+        sidebar1String = "Nation in Mourning";
+        if (hamster)
+          {
+            sidebar2String = "Bucky the Hamster Returns from Space!";
+          } else if (!hamster)
+          {
+            sidebar2String = "Bucky the Hamster Dies During Shuttle Mission";
+          }
+        sidebar3String = "Wookie Discovered in Texas!";
+        break
+      }
+      case 2:
+      {
+        headlineString = "Astronauts Killed During Mission!"
+        sidebar1String = "Nations in Mourning"
+        if (hamster)
+          {
+            sidebar2String = "Bucky the Hamster Returns from Space!"
+          } else if (!hamster)
+          {
+            sidebar2String = "Bucky the Hamster Dies During Shuttle Mission"
+          }
+
+        sidebar3String = "Wookie Discovered in Texas!"
+      }
+      case 3:
+      {
+        headlineString = "Astronauts Killed During Mission!"
+        sidebar1String = "Nations in Mourning"
+        if (hamster)
+          {
+            sidebar2String = "Bucky the Hamster Returns from Space!"
+          } else if (!hamster)
+          {
+            sidebar2String = "Bucky the Hamster Dies During Shuttle Mission"
+          }
+        sidebar3String = "Wookie Discovered in Texas!"
+        break
+      }
+    }
   }
 
 

@@ -56,6 +56,7 @@ var $sidebar1 = undefined;
 var $sidebar2 = undefined;
 var $sidebar3 = undefined;
 var $articleText = undefined;
+var $restartButton = undefined;
 
 var headlineString = undefined;
 var sidebar1String =undefined;
@@ -219,7 +220,7 @@ function loadCharacterCreation(){
 }
 
 function loadNewsPaper(){
-  $newspaper = $('<div id = "newspaperWrapper"><img id ="newspaperBackground" src=""><div id="newspaperName">The</div><div id = "headline"><div id="headlineText">HEADLINE NEWS HAPPENING NOW</div></div><div id="articleContainer"><div id="articleText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div></div><div id = "sidebarColumn"><div class="sidebarItem" id="sb1" >Lorem ipsum dolor sit amet</div><div class="sidebarItem" id="sb2">Lorem ipsum dolor sit amet</div><div class="sidebarItem" id="sb3">Lorem ipsum dolor sit amet</div></div></div>');
+  $newspaper = $('<div id = "newspaperWrapper"><img id ="newspaperBackground" src=""><div id="newspaperName">The</div><div id = "headline"><div id="headlineText">HEADLINE NEWS HAPPENING NOW</div></div><div id="articleContainer"><div id="articleText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div></div><div id = "sidebarColumn"><div class="sidebarItem" id="sb1" >Lorem ipsum dolor sit amet</div><div class="sidebarItem" id="sb2">Lorem ipsum dolor sit amet</div><div class="sidebarItem" id="sb3">Lorem ipsum dolor sit amet</div></div><button class="screenButton" id="restartGame">Restart?</button></div>');
 
     $('body').append($newspaper);
 
@@ -228,12 +229,18 @@ function loadNewsPaper(){
    $sidebar2 = $('#sb2');
    $sidebar3 = $('#sb3');
    $articleText = $('#articleText');
+   $restartButton =$('#restartGame')
 
    $headline.text(headlineString);
    $sidebar1.text(sidebar1String);
    $sidebar2.text(sidebar2String);
    $sidebar3.text(sidebar3String);
    $articleText.text(articleString);
+
+   $restartButton.on('click', function(){
+    $('body').empty();
+    loadStartScreen();
+   })
 }
 
 //##########

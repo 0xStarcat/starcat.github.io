@@ -358,7 +358,7 @@ function cockpitRumble(){
 
 var adjustFlightMeter = function (){
 
-  if (!isOnTarget)
+  if (!isOnTarget && !endGame)
     {
       flightMeterFill -= 0.5;
       $flightMeterInner.css({
@@ -372,7 +372,7 @@ var adjustFlightMeter = function (){
       });
     }
 
-    if (flightMeterFill <= 0)
+    if (flightMeterFill <= 0 && !endGame)
     {
       flightMeterFill = 0;
       console.log('shuttle crashed! You lose!')

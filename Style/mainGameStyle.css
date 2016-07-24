@@ -57,7 +57,8 @@ html {
   left: -50vw;
   height: 400vh;
   width: 800vw;
-  background: blue;
+  /* background: linear-gradient(to top, rgba(124, 230, 255, 1) 0.1%, rgba(66, 44, 44, 1) 99.9%); */
+  background: url('http://img01.deviantart.net/d7a4/i/2012/289/c/2/sky_space_and_war__speedpaint__by_mitsukai_inki-d5i01wc.jpg') no-repeat top left fixed;
   z-index: -1;
   transform-origin: 50vw 100%;
   /* transform: rotate(5deg); */
@@ -67,7 +68,7 @@ html {
 
   top: 300vh;
   left: -50vw;
-  height: 400vh;
+  height: 100vh;
   width: 800vw;
   background: brown;
   z-index: -1;
