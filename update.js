@@ -23,9 +23,15 @@ $(document).ready(function(){
   }
 
 
-  function startUpdate(){
+  function startUpdate(toggle){
     console.log('update Starting!');
 
-    setInterval(update, 50);
+    if (toggle === 1)
+    {
+      var updateInterval = setInterval(update, 50);
+    } else if (toggle ===0) {
+      clearInterval(updateInterval);
+    }
+
   }
 

@@ -77,6 +77,7 @@ if (miniGameActive)
     });
 
 
+
 //#######
 //If the animation reaches bottom, you get penalized. The animation is stopped with arrow.stop() if a condition
 // is met from above.
@@ -102,6 +103,90 @@ if (miniGameActive)
   }
 };
 
+function addRhythmListeners(){
+
+  $(window).on('keydown', function(e){
+    if (e.keyCode === 37 || e.which === 37) //left
+    {
+      $targetLeft.css({
+        opacity: 1,
+        'box-shadow': '0px 0px 0px 8px white'
+      });
+
+        if (someoneChosen === false)
+        {
+          chosenAstronaut = 0;
+          someoneChosen = true;
+          console.log(chosenAstronaut + someoneChosen)
+        }
+
+    } else if (e.keyCode === 38 || e.which === 38) //up
+    {
+      $targetUp.css({
+        opacity: 1,
+        'box-shadow': '0px 0px 0px 8px white'
+      });
+         if (someoneChosen === false)
+        {
+          chosenAstronaut = 1;
+          someoneChosen = true;
+        }
+
+    } else if (e.keyCode === 39 || e.which === 39) //right
+    {
+      $targetRight.css({
+        opacity: 1,
+        'box-shadow': '0px 0px 0px 8px white'
+      });
+         if (someoneChosen === false)
+        {
+          chosenAstronaut = 3;
+          someoneChosen = true;
+        }
+    } else if (e.keyCode === 40 || e.which === 40) //down
+    {
+      $targetDown.css({
+        opacity: 1,
+        'box-shadow': '0px 0px 0px 8px white'
+      });
+
+         if (someoneChosen === false)
+        {
+          chosenAstronaut = 2;
+          someoneChosen = true;
+        }
+    }
+  });
+
+  $(window).on('keyup', function(e){
+    if (e.keyCode === 37 || e.which === 37)
+    {
+      $targetLeft.css({
+        opacity: 0.5,
+        'box-shadow': '0px 0px 0px 4px white'
+      });
+
+    } else if (e.keyCode === 38 || e.which === 38)
+    {
+      $targetUp.css({
+        opacity: 0.5,
+        'box-shadow': '0px 0px 0px 4px white'
+      });
+    } else if (e.keyCode === 39 || e.which === 39)
+    {
+      $targetRight.css({
+        opacity: 0.5,
+        'box-shadow': '0px 0px 0px 4px white'
+      });
+    } else if (e.keyCode === 40 || e.which === 40)
+    {
+      $targetDown.css({
+        opacity: 0.5,
+        'box-shadow': '0px 0px 0px 4px white'
+      });
+    }
+  });
+}
 
 //Win/Lose conditions for Mini-game set here
 function checkCounter(){
@@ -221,92 +306,7 @@ function clearGame(){
     //checkCounter();
 }
 
-function addRhythmListeners(){
 
-
-
-  $(window).on('keydown', function(e){
-    if (e.keyCode === 37 || e.which === 37) //left
-    {
-      $targetLeft.css({
-        opacity: 1,
-        'box-shadow': '0px 0px 0px 8px white'
-      });
-
-        if (someoneChosen === false)
-        {
-          chosenAstronaut = 0;
-          someoneChosen = true;
-          console.log(chosenAstronaut + someoneChosen)
-        }
-
-    } else if (e.keyCode === 38 || e.which === 38) //up
-    {
-      $targetUp.css({
-        opacity: 1,
-        'box-shadow': '0px 0px 0px 8px white'
-      });
-         if (someoneChosen === false)
-        {
-          chosenAstronaut = 1;
-          someoneChosen = true;
-        }
-
-    } else if (e.keyCode === 39 || e.which === 39) //right
-    {
-      $targetRight.css({
-        opacity: 1,
-        'box-shadow': '0px 0px 0px 8px white'
-      });
-         if (someoneChosen === false)
-        {
-          chosenAstronaut = 3;
-          someoneChosen = true;
-        }
-    } else if (e.keyCode === 40 || e.which === 40) //down
-    {
-      $targetDown.css({
-        opacity: 1,
-        'box-shadow': '0px 0px 0px 8px white'
-      });
-
-         if (someoneChosen === false)
-        {
-          chosenAstronaut = 2;
-          someoneChosen = true;
-        }
-    }
-  });
-
-  $(window).on('keyup', function(e){
-    if (e.keyCode === 37 || e.which === 37)
-    {
-      $targetLeft.css({
-        opacity: 0.5,
-        'box-shadow': '0px 0px 0px 4px white'
-      });
-
-    } else if (e.keyCode === 38 || e.which === 38)
-    {
-      $targetUp.css({
-        opacity: 0.5,
-        'box-shadow': '0px 0px 0px 4px white'
-      });
-    } else if (e.keyCode === 39 || e.which === 39)
-    {
-      $targetRight.css({
-        opacity: 0.5,
-        'box-shadow': '0px 0px 0px 4px white'
-      });
-    } else if (e.keyCode === 40 || e.which === 40)
-    {
-      $targetDown.css({
-        opacity: 0.5,
-        'box-shadow': '0px 0px 0px 4px white'
-      });
-    }
-  });
-}
 
 
 // setTimeout(function()

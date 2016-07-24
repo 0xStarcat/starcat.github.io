@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="style/startScreenStyle.css">
+  <link rel="stylesheet" href="style/mainGameStyle.css">
+  <link rel="stylesheet" href="style/characterCreationStyle.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+</head>
+<body>
+
+<div id="screenContainer">
+  <div class="hud" id="angleTargetBox"></div>
+  <div class="hud" id="angleIndicator"></div>
+  <img id="cockpit" src = "http://orig00.deviantart.net/cf70/f/2014/202/b/e/cockpit_by_justinhaynes89-d7rp2yv.png"><!-- JustinHayes89 on DeviantArt http://justinhaynes89.deviantart.com/art/Cockpit-469783111 -->
+  <div id="sky"></div>
+  <div id="ground"></div>
+  <div class="meter hud" id="flightMeterOuter"></div>
+  <div class="meter hud" id="flightMeterInner"></div>
+  <div id="arrowSpawner">
+    <div class ="spawnBox" id="qLeft"></div>
+    <div class ="spawnBox" id="qUp"></div>
+    <div class ="spawnBox" id="qDown"></div>
+    <div class ="spawnBox" id="qRight"></div>
+  </div>
+  <div id="rhythmZone"></div>
+  <div id="portraitZone">
+    <div class="characterContainer">
+      <div class="portraitContainer" id="portrait0">
+          <img class="portrait" src=''>
+      </div>
+      <div class="nameNationality" id="name1">Jeff<img class="flagIcon" id="flag1" src="images/flags64/Afghanistan-flag.png"></div>
+    </div>
+     <div class="characterContainer">
+        <div class="portraitContainer" id="portrait1">
+          <img class="portrait" src=''>
+        </div>
+        <div class="nameNationality" id="name2">Bob<img class="flagIcon" id="flag2" src=""></div>
+      </div>
+       <div class="characterContainer">
+        <div class="portraitContainer" id="portrait2">
+          <img class="portrait" src=''>
+        </div>
+        <div class="nameNationality" id="name3">Frank<img class="flagIcon" id="flag3" src=""></div>
+      </div>
+       <div class="characterContainer">
+        <div class="portraitContainer" id="portrait3">
+          <img class="portrait" src=''>
+        </div>
+        <div class="nameNationality" id="name4">Alfonso<img class="flagIcon" id="flag4" src=""></div>
+      </div>
+  </div>
+  <div id = "textNotification"></div>
+</div>
+</body>
+<script src ="startScreen.js"></script>
+<script src ="gameText.js"></script>
+<script src ="characterCreation.js"></script>
+<script src ="flightControls.js"></script>
+<script src ="storyProgression.js"></script>
+<script src ="rhythm.js"></script>
+<script src ="loading.js"></script>
+<script src ="update.js"></script>
+
+</html>
+

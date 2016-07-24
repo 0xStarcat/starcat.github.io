@@ -280,8 +280,11 @@ function createCharacterEventListeners(){
   $submitButton.on('click', function(){
     console.log('submit button clicked!')
 
-    newAstronaut = new NewCharacter($charName.val(), $charNationality.val(), $charAge.val(), $charBackground.val(), $charQuote.val(), "")
-
+    //var parsedFlag = String('images/flags64/'+String($charNationality.val()+'-flag.png').replace(/\s/g,''));
+    var parsedFlag = String('images/flags64/'+flagPictures[flagPicturesIndex]);
+    console.log(parsedFlag);
+    newAstronaut = new NewCharacter($charName.val(), $charNationality.val(), parsedFlag, $charAge.val(), $charBackground.val(), $charQuote.val(), "")
+    //console.log(newAstronaut);
     switch (pageNumber)
     {
       case 1:
@@ -364,10 +367,11 @@ function randomQuote() {
 
 }
 
-function NewCharacter(name, nationality, age, background, quote, picture) {
+function NewCharacter(name, nationality, flag, age, background, quote, picture) {
 
   this.name = name,
   this.nationality = nationality,
+  this.flag = flag,
   this.age = age,
   this.background = background,
   this.quote = quote,

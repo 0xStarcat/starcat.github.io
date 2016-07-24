@@ -8,7 +8,14 @@ html {
   position: fixed;
   margin: 0px;
   padding: 0px;
-
+  outline: none;
+/*   http://stackoverflow.com/questions/880512/prevent-text-selection-after-double-click
+ */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
 }
 
 #angleTargetBox{
@@ -132,25 +139,25 @@ html {
  }
 
   #Left{
-  background: url("images/1469141117_Arrow_Drop_Down.svg") no-repeat;
+  background: url("../images/1469141117_Arrow_Drop_Down.svg") no-repeat;
   background-size: 100%;
   transform: rotate(90deg);
   opacity: 1;
 
   }
   #Up{
-  background: url("images/1469141117_Arrow_Drop_Down.svg") no-repeat;
+  background: url("../images/1469141117_Arrow_Drop_Down.svg") no-repeat;
   background-size: 100%;
   transform: rotate(180deg);
   opacity: 1;
   }
   #Down{
-  background: url("images/1469141117_Arrow_Drop_Down.svg") no-repeat;
+  background: url("../images/1469141117_Arrow_Drop_Down.svg") no-repeat;
   background-size: 100%;
   opacity: 1;
   }
   #Right{
-  background: url("images/1469141117_Arrow_Drop_Down.svg") no-repeat;
+  background: url("../images/1469141117_Arrow_Drop_Down.svg") no-repeat;
   background-size: 100%;
   transform: rotate(-90deg);
   opacity: 1;
@@ -186,9 +193,9 @@ html {
   }
 
   #rhythmZone {
-    bottom: 10vh;
+    bottom: 150px;
     width: 80vw;
-    height: 100px;
+    height: 10vw;
     margin: 0px 10vw;
    /*  background: rgba(100, 255, 100, 0.1); */
     opacity: 0.5;
@@ -225,7 +232,7 @@ html {
 
   #portraitZone {
 
-    bottom: 2vh;
+    bottom: 50px;
     width: 80vw;
     height: 100px;
     margin: 0px 10vw;
@@ -235,6 +242,34 @@ html {
     justify-content: space-around;
    /*  background-color: rgba(255,255,175, 0.3); */
 
+
+  }
+
+  .characterContainer{
+    /* border: 2px red solid; */
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  .nameNationality{
+    color: yellow;
+    opacity: 0.8;
+    text-align: left;
+    font-size: 0.9rem;
+    position: absolute;
+    /* border: 2px orange solid; */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .flagIcon{
+    position: relative;
+    display: block;
+    height: 20%;
+    width: 20%;
 
   }
 
@@ -255,6 +290,8 @@ html {
     height: 100px;
     width: 100px;
   }
+
+
 
   .dead {
       background-color: rgba(255, 100, 100, 0.8);
