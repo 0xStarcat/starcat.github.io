@@ -121,7 +121,7 @@ function loadStartScreen(){
 }
 
 function loadCreditsScreen(){
-  var creditScreenHTML = $('<div id="startScreenContainer"><div id="startScreenGradient"><button class="screenButton" id ="backButton">Back</button><div id="creditsScreen"><p class="creditsSpan">Made by</p><p class="creditsLine">Jeff</p><p class="creditsSpan">Cockpit Image by</p><p class="creditsLine">Justin Haynes - http://justinhaynes89.deviantart.com<br></p><p class="creditsSpan">All other images</p><p class="creditsLine">Licensed for free use without attribution<br></p></div></div></div>');
+  var creditScreenHTML = $('<div id="startScreenContainer"><div id="startScreenGradient"><button class="screenButton" id ="backButton">Back</button><div id="creditsScreen"><p class="creditsSpan">Made by</p><p class="creditsLine">Jeff</p><p class="creditsSpan">Cockpit Image by</p><p class="creditsLine">Justin Haynes - http://justinhaynes89.deviantart.com<br></p><p class="creditsSpan">Space Background by: </p><p class="creditsLine">Mitsukai Inki - deviantArt http://mitsukai-inki.deviantart.com/</p><p class="creditsSpan">All other images</p><p class="creditsLine">Licensed for free use without attribution<br></p></div></div></div>');
   $('body').append(creditScreenHTML);
 
   $backButton = $('#backButton');
@@ -146,7 +146,7 @@ function loadCreditsScreen(){
 
 function loadMainGame(){
 
-  var mainGameHTML = $('<div id="screenContainer"><div class="hud" id="angleTargetBox"></div><div class="hud" id="angleIndicator"></div><img id="cockpit" src = "images/cockpit_by_justinhaynes89-d7rp2yv.png"><!-- JustinHayes89 on DeviantArt http://justinhaynes89.deviantart.com/art/Cockpit-469783111 --><div id="sky"><div id="skyGradient"></div><img id="skyImage" src="http://img01.deviantart.net/d7a4/i/2012/289/c/2/sky_space_and_war__speedpaint__by_mitsukai_inki-d5i01wc.jpg"></div><div id="ground"><img id="groundImage src="https://i.publiclab.org/system/images/photos/000/010/647/original/Camp_665.jpg"></div><div class="meter hud" id="flightMeterOuter"></div><div class="meter hud" id="flightMeterInner"></div><div id="arrowSpawner"><div class ="spawnBox" id="qLeft"></div><div class ="spawnBox" id="qUp"></div><div class ="spawnBox" id="qDown"></div><div class ="spawnBox" id="qRight"></div></div><div id="rhythmZone"></div><div id="portraitZone"></div><div id = "textNotification"></div>')
+  var mainGameHTML = $('<div id="screenContainer"><div class="hud" id="angleTargetBox"></div><div class="hud" id="angleIndicator"></div><img id="cockpit" src = "images/cockpit_by_justinhaynes89-d7rp2yv.png"><!-- JustinHayes89 on DeviantArt http://justinhaynes89.deviantart.com/art/Cockpit-469783111 --><div id="sky"><div id="skyGradient"></div><img id="skyImage" src="http://img01.deviantart.net/d7a4/i/2012/289/c/2/sky_space_and_war__speedpaint__by_mitsukai_inki-d5i01wc.jpg"></div><div id="ground"><img id="groundImage src=""></div><div class="meter hud" id="flightMeterOuter"></div><div class="meter hud" id="flightMeterInner"></div><div id="arrowSpawner"><div class ="spawnBox" id="qLeft"></div><div class ="spawnBox" id="qUp"></div><div class ="spawnBox" id="qDown"></div><div class ="spawnBox" id="qRight"></div></div><div id="rhythmZone"></div><div id="portraitZone"></div><div id = "textNotification"></div>')
   $('body').append(mainGameHTML);
 
 
@@ -190,14 +190,62 @@ function loadMainGame(){
   //speed, interval, last
   //remember that minigame lasts for 15 seconds + last
   //0.11 = 3 minutes
-  startMainGame(0.07, 55000, 20000); //Short 3 min game, 3 mini games inside
-  //startMainGame(0.10, 55000, 20000); //Short game, 2 mini games inside
+
+  startIntroduction();
+
+  // startMainGame(0.07, 55000, 20000); //Short 3 min game, 3 mini games inside
+  // //startMainGame(0.10, 55000, 20000); //Short game, 2 mini games inside
+
   startUpdate(1);
 
 
 
 }
 
+function startIntroduction(){
+
+  console.log('Introduction... go!');
+
+  resetEverything();
+  $angleBox.css('opacity', '0');
+  $('.meter').css('opacity', '0');
+
+//3 seconds
+setTimeout(function(){
+  $textNotification.text("Re-entering the atmosphere in T-13 seconds")
+  $textNotification.animate({
+    opacity : 1
+  }, 2000, function(){
+    setTimeout(function(){
+      $textNotification.text("Performing final system checks.");
+    }, 2000)
+    setTimeout(function(){
+      $textNotification.text("Heat shield integrity compromised.");
+    }, 5000)
+    setTimeout(function(){
+      $textNotification.text("Peripheral systems may be affected during re-entry.");
+    }, 8000)
+    setTimeout(function(){
+      $textNotification.text("Have a pleasant Day.");
+
+      $angleBox.animate({
+        'opacity': '1'}, 3000, function(){
+           $('.meter').animate({'opacity': '1'}, 1000);
+        });
+
+    }, 11000)
+    setTimeout(function(){
+      $textNotification.css('opacity', '0');
+      startMainGame(0.07, 55000, 20000); //Short 3 min game, 3 mini games inside
+      startRumble = true;
+      startMeter = true;
+    }, 15000)
+  });
+},3000)
+
+
+
+};
 
 // loadMainGame();
 // startMainGame(500, 30000, 15000);

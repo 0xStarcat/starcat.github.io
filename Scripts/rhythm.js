@@ -206,7 +206,7 @@ function checkCounter(){
 
 }
 
-var rhythmGame = function(length, speed){
+var rhythmGame = function(length){
 //Displays setPenalty text for 4 seconds
 //Then 10 seconds to choose teammate to send
 //Then game lasts for 'length'
@@ -234,7 +234,7 @@ var rhythmGame = function(length, speed){
       {
       clearInterval(countDownTeammate);
       $textNotification.text("");
-      rainOfArrows(length, speed);
+      rainOfArrows(length, 2000);
       } else if (countDown < 0 && someoneChosen === false)
       {
         clearInterval(countDownTeammate);

@@ -158,7 +158,7 @@ unstableCockpit = true;
 function startMainGame(gameLength, miniGameInterval, miniGameLength)
 {
   console.log('Main game starting!');
-  resetEverything();
+
 
 
 
@@ -366,9 +366,6 @@ function winGame(){
       $('body').css('opacity', '1');
       $textNotification.css('opacity','0');
     });
-
-
-
 }
 
 function loseGame(){
@@ -380,7 +377,11 @@ function loseGame(){
   penaltyText.biologyExperiments[4].alive = false;
   penaltyText.spaceHamsters[4].alive = false;
 
+  $angleBox.css('opacity', '0');
+  $('.meter').css('opacity', '0');
 
+  clearInterval(miniGameStart);
+  clearTimeout(firstRhythmGame);
   clearGame();
 
    $textNotification.animate({
