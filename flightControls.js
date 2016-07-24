@@ -1,5 +1,3 @@
-
-
 var targetX = 47.5;
 var targetY = 47.5;
 var indicatorX = 50;
@@ -38,20 +36,25 @@ var unstableCockpit = false;
 
 var debug = false;
 
-var $sky = $('#sky');
-var $ground = $('#ground');
-var $cockpit = $('#cockpit');
-var $angleBox = $('#angleTargetBox');
-var $angleIndicator = $('#angleIndicator');
+
 
 $(document).ready(function(){
 console.log('Flight Controls... check!');
 
-var setEventListeners = function()
+
+
+
+
+
+
+});
+
+function setFlightEventListeners()
   {
     $(window).on('keydown', function(e){
       if (e.keyCode === 65 || e.which === 65)
       {
+
         //console.log('A button down');
         aLeft = true;
       }
@@ -95,9 +98,6 @@ var setEventListeners = function()
       }
     })
   }
-  setEventListeners();
-
-});
 
 function moveTargetZone(){
 //#######

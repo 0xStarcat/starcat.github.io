@@ -4,12 +4,8 @@ console.log('story script Loaded');
   var gameLength = 125;
   var flightMeterFill = 80;
 
-  var $textNotification = undefined;
-  var $flightMeterInner = $('#flightMeterInner');
-  var $portraitZone = $('#portraitZone');
-  var $portraits = $('<div class="portraitContainer id="portrait0""><img class="portrait" src="http://icons.iconarchive.com/icons/iconshock/real-vista-jobs/256/astronaut-icon.png"></div><div class="portraitContainer"id="portrait1"><img class="portrait" src="http://icons.iconarchive.com/icons/iconshock/real-vista-jobs/256/astronaut-icon.png"></div><div class="portraitContainer" id="portrait2"><img class="portrait" src="http://icons.iconarchive.com/icons/iconshock/real-vista-jobs/256/astronaut-icon.png"></div><div class="portraitContainer" id="portrait3"><img class="portrait" src="http://icons.iconarchive.com/icons/iconshock/real-vista-jobs/256/astronaut-icon.png"></div>');
-    $portraitZone.append($portraits);
-    $portraits.hide();
+
+
 
   // var penaltyFunctions = [aeronauticStabilizers];
   // var penalties = ['aeronauticStabilizers']
@@ -22,7 +18,7 @@ console.log('story script Loaded');
 $(document).ready(function(){
 console.log('Story... check!');
 
-  $textNotification = $('#textNotification');
+
 });
 
 var setPenaltyText = function(){
@@ -194,5 +190,12 @@ function startMainGame(gameLength, miniGameInterval, miniGameLength)
 }, gameLength);
 
 }
-startMainGame(500, 30000, 15000);
+
+function transitionCharacterToMainGame(){
+
+  $('body').empty();
+
+}
+
+
 

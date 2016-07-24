@@ -1,6 +1,10 @@
 $(document).ready(function(){
   console.log('Update function... loaded!')
+
+
 });
+
+
 
   var update = function(){
 
@@ -15,7 +19,13 @@ $(document).ready(function(){
   adjustFlightMeter(); //storyProgression.js
 
 
+
   }
 
-  setInterval(update, 50);
+
+  function startUpdate(){
+    console.log('update Starting!');
+
+    setInterval(update, 50);
+  }
 

@@ -8,22 +8,52 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
-<div id="characterScreenContainer">
-	<img class="charPortrait" src="http://icons.iconarchive.com/icons/iconshock/real-vista-jobs/256/astronaut-icon.png">
-	<input type=text value = "Name" class ="charName">
-	<input type=text  value ="Nationality" class ="charNationality">
-	<input type=text  value ="Age" class ="charAge">
-	<input type=text  value ="Background" class ="charBackground">
-	<input type=text  value ="Quote" class ="charQuote">
+<div id="outerWrapper">
+  <div class="sideBar">
+    <div class="flag"></div>
+    <div class = "changePortrait" id="changeP_left"></div>
+    <div class ="left_selection emptyArrow"></div>
+    <div class ="left_selection"></div>
+    <div class ="left_selection"></div>
+    <div class ="left_selection"></div>
+    <div class ="left_selection"></div>
+    <div class ="empty"></div>
+  </div>
+  <div id="characterScreenContainer">
+    <img class="flag" id="showFlag" src="">
+  	<div id="portraitBackground"><img class="charPortrait" src=""></div>
+  	<input type=text value = "Name" class ="charName charInput">
+  	<input type=text class ="charNationality charInput" value= "Nationality" >
+  	<input type=text class ="charInput charAge" value = '< Age >'>
+  	<input type=text  value ="Background" class ="charInput charBackground">
+  	<textarea name =quoteBox class ="charInput charQuote"></textarea>
+    <button id="submitAstronaut" type=submit value ="charInput Submit">Pick Astronaut</button>
+  </div>
+  <div class="sideBar">
+    <div class="flag"></div>
+    <div class = "changePortrait" id="changeP_right"></div>
+    <div class ="right_selection emptyArrow"></div>
+    <div class ="right_selection"></div>
+    <div class ="right_selection"></div>
+    <div class ="right_selection"></div>
+    <div class ="right_selection"></div>
+    <div class ="empty"></div>
+  </div>
 </div>
-
-
-
+<div id="charScreenTitle">Choose your team</div>
+<div id="pageNumber">1/4</div>
 
 
 
 </body>
 
+<script src ="gameText.js"></script>
 <script src ="characterCreation.js"></script>
+<script src ="flightControls.js"></script>
+<script src ="storyProgression.js"></script>
+<script src ="rhythm.js"></script>
+<script src ="gameText.js"></script>
+<script src ="loading.js"></script>
+<script src ="update.js"></script>
 
 </html>

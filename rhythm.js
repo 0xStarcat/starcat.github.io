@@ -1,16 +1,9 @@
- var $arrowSpawner = $('#arrowSpawner');
 
- var $rhythmZone = $('#rhythmZone');
  var arrows = ['Left','Up','Down','Right'];
  var miniGameCounter = 5;
  var miniGameActive = false;
  var arrowSpeed = 2000; //2 seconds to bottom of screen;
- var rhythmZoneTop = $rhythmZone.position().top;
- var rhythmZoneBottom = $rhythmZone.position().top + $rhythmZone.innerHeight();
- var createRhythmZone = $('<div class ="spawnBox rhythm" id="pLeft"><div class="arrow arrowBackground rhythm" id="phLeft"></div><div class="arrow rhythm" id="Left"></div></div><div class ="spawnBox rhythm" id="pUp"><div class="arrow arrowBackground rhythm" id="phUp"></div><div class="arrow rhythm" id="Up"></div></div><div class ="spawnBox rhythm" id="pDown"><div class="arrow arrowBackground rhythm" id="phDown"></div><div class="arrow rhythm" id="Down"></div></div><div class ="spawnBox rhythm" id="pRight"><div class="arrow arrowBackground rhythm" id="phRight"></div><div class="arrow rhythm" id="Right"></div></div>');
-    $($rhythmZone).append(createRhythmZone);
-    addRhythmListeners();
-    $rhythmZone.hide();
+
 
  var chosenAstronaut = -1;
  var someoneChosen = true;
@@ -61,13 +54,13 @@ if (miniGameActive)
             }, 750, function(){
                 isActive = false;
                 arrowBackground.remove();
-                
+
                 delete windowKeyEvent;
                 delete arrowBackground;
             })
             //console.log(direction+' arrow in Rhythm!');
-           
-             
+
+
              //$(window).off('keydown');
           } else if (arrow.position().top >= rhythmZoneTop - 300){
             //console.log(direction+' #####Off rhythm!######');
@@ -230,10 +223,7 @@ function clearGame(){
 
 function addRhythmListeners(){
 
- var $targetLeft = $('#phLeft');
- var $targetUp = $('#phUp');
- var $targetDown = $('#phDown');
- var $targetRight = $('#phRight');
+
 
   $(window).on('keydown', function(e){
     if (e.keyCode === 37 || e.which === 37) //left
