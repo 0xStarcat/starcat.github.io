@@ -1,6 +1,6 @@
 
 var penaltyText = undefined;
-var penalties = ['biologyExperiments','spaceHamsters','rollJets','yawJets','powerCapacitors','aeronauticStabilizers']
+var penalties = ['biologyExperiments','spaceHamsters','rollJets','pitchJets','powerCapacitors','aeronauticStabilizers']
 
 function loadPenaltyData()
 {
@@ -8,7 +8,7 @@ function loadPenaltyData()
     biologyExperiments : ["Biology experiments overheating!", "Biology experiments lost", "Biology experiments saved!", biologyExperiments, {alive: true}],
     spaceHamsters : ["Space Hamster's life support failing.", "Space Hamsters lost!", "Space Hamsters are safe!",spaceHamsters, {alive: true}],
     rollJets : ["Roll Jets malfunctioning!", "Roll Jets non-functional!", "Roll Jets repaired!",rollJets],
-    yawJets : ["Yaw Jets malfunctioning!", "Yaw Jet non-functional!", "Yaw Jets repaired!",yawJets],
+    pitchJets : ["Pitch Jets malfunctioning!", "Pitch Jet non-functional!", "Pitch Jets repaired!",pitchJets],
     powerCapacitors : ["Power Capacitors overloading!", "Power Capacitors are overloaded!", "Power Capacitors re-routed!",powerCapacitors],
     aeronauticStabilizers : ["Stabilization system failing!", "Stabilizers have failed!", "Stabilizers fixed!",aeronauticStabilizers]
   }

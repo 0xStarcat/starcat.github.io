@@ -101,7 +101,7 @@ function rollJets(){
   rotateSpeed = 0.2;
 }
 
-function yawJets(){
+function pitchJets(){
   console.log('slowing Y speed');
   targetSpeedY = 0.15;
   ySpeed = 0.1;
@@ -149,12 +149,13 @@ unstableCockpit = true;
   //20 updates per second @ 50ms
   //Set game length using skyStep variable - this is the amount the sky moves with each update frame
   //skyStep = 0.11 = about 3 minutes of gameplay
+
+//^^^^^^^^^^^^^ to calculate first argument of startMainGame....
+//number * 20 (because update is every 50ms so 50ms * 20 = 1 second) * 60 = steps/min
+//then do 250 steps / above answer answer to get how many minutes the game lasts
 function startMainGame(gameLength, miniGameInterval, miniGameLength)
 {
   console.log('Main game starting!');
-
-
-
 
   firstRhythmGame = setTimeout(function(){
     //trigger first after 10 seconds

@@ -231,3 +231,12 @@
    color: white;
    text-align: center;
 }
+
+#controlsInfo {
+  color: white;
+  font-size: 1rem;
+  line-height: 120%;
+  text-align: center;
+  width: 100vw;
+  bottom: 0px;
+}

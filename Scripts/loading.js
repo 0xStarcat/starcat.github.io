@@ -261,14 +261,13 @@ setTimeout(function(){
   });
 },3000)
 
-//num * 20 * 60 = steps/min
-//then do 250 / that answer to get how many minutes the game lasts
+//^^^^^^^^^^^^^ to calculate first argument of startMainGame....
+//number * 20 * 60 = steps/min
+//then do 250 steps / above answer answer to get how many minutes the game lasts
 
 
 };
 
-// loadMainGame();
-// startMainGame(500, 30000, 15000);
 
 function loadCharacterCreation(){
 
@@ -298,7 +297,7 @@ function loadCharacterCreation(){
 
 function fakeLoadingScreen(){
 
-  var $fakeLoadingScreenHTML = $('<div id = "fakeLoadWrapper"><div id ="fakeLoadImageContainer"><img id="fakeLoadImage" src="images/92D-re-entry.png"></div><div id ="fakeLoadText">Loading</div></div>')
+  var $fakeLoadingScreenHTML = $('<div id = "fakeLoadWrapper"><div id ="fakeLoadImageContainer"><img id="fakeLoadImage" src="images/92D-re-entry.png"></div><div id ="fakeLoadText">Loading</div><div id="controlsInfo">Use W-A-S-D keys to steer</div></div>')
   $('body').append($fakeLoadingScreenHTML);
 
   console.log('fake loading screen... nice work')
