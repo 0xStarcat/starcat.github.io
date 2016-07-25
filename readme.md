@@ -1,20 +1,20 @@
 ```html
 
-<strong>Jeff's Game</strong>
+**Jeff's Game**
 
-<strong>< DESCRIPTION ></strong>
+**< DESCRIPTION >**
 
 A cross between a flight sim and guitar hero. 
 
 
-<strong>< CODE USED ></strong>
+**< CODE USED >**
 
 HTML, CSS, Javascript/Jquery. No frameworks, no APIs. 
 
 
-<strong>< PROJECT GOALS ></strong>
+**< PROJECT GOALS >**
 
-<em>Bronze Goals</em>
+*Bronze Goals*
 
     1) The player tracks the moving square on the screen with the crosshair for a determined amount of time to avoid losing the game.
     2) The POV is 1st Person inside an aircraft with appropriate rotation and climbing when using keys to mimic flying.
@@ -24,17 +24,17 @@ HTML, CSS, Javascript/Jquery. No frameworks, no APIs.
     6) If the player loses the piloting game, game over. 
     7) The player can restart
 
-<em>Silver Goals</em>
+*Silver Goals*
     1) The cockpit has a static interior image to give a better graphical representation of the PoV. 
     2) The player must create or choose 3 astronauts to have on board the spacecraft to add a personal stake to the game.
     3) The rhythm game is triggered at random intervals via text notification and the player must choose an astronaut to "risk" to solve a problem on the spacecraft without pausing the game. 
     4) Failure of the rhythm game will make the piloting game harder and make you lose an astronaut. If no astronauts remain, the rhythm game will be impossible to beat.
 
-<em>Gold Goals</em>
+*Gold Goals*
     1) A newspaper mockup article displays the outgame of the player's game (win/lose) with a short blurb about the details (astronauts lost, etc).
     2) There is a vanishing point perspective on the landscape in the game. 
 
-<em>User Stories</em>
+*User Stories*
 
     1) As a player, I want to decide how the controls are configured to better suit my user experience.
     2) … I want to be able to be able to create a diverse array of characters to foster an emotional connection to them.
