@@ -215,7 +215,7 @@ function createCharacterEventListeners(){
     $charNationality.val('');
   })
 
-  $charNationality.on('keyup', function(){
+  $charNationality.on('keypress', function(){
     var searchNation = $charNationality.val().toUpperCase();
     var inputLength = searchNation.length;
 
