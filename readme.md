@@ -2,17 +2,17 @@
 
 **Jeff's Game**
 
-** DESCRIPTION **
+**DESCRIPTION**
 
 A cross between a flight sim and DDR. 
 
 
-** CODE USED **
+**CODE USED**
 
 HTML, CSS, Javascript/Jquery. No frameworks, no APIs. 
 
 
-** PROJECT GOALS **
+**PROJECT GOALS**
 
 *Bronze Goals*
 
@@ -44,7 +44,7 @@ HTML, CSS, Javascript/Jquery. No frameworks, no APIs.
     4) … I don't want highlights or text selections to appear that would break my immersion or remind me that I'm playing in a browser.
     5) … I want don't want the page to reload as I navigate through different screens to maintain my immersion.
     
- ** Sources **
+ **Sources**
 
 Start Screen background: https://pixabay.com/static/uploads/photo/2015/10/24/17/59/earth-1004771_960_720.jpg //licensed for free reuse without attribution
 
