@@ -253,13 +253,16 @@ setTimeout(function(){
     }, 11000)
     setTimeout(function(){
       $textNotification.css('opacity', '0');
-      startMainGame(0.065, 45000, 20000); //Short 3 min game, 3 mini games inside
+      startMainGame(0.07, 42000, 20000); //Short 3 min game, 3 mini games inside
+      //startMainGame(0.13, 38000, 20000); //quick 1.5 min game, 3 mini games inside
       startRumble = true;
       startMeter = true;
     }, 15000)
   });
 },3000)
 
+//num * 20 * 60 = steps/min
+//then do 250 / that answer to get how many minutes the game lasts
 
 
 };

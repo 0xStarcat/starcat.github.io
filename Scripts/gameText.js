@@ -45,7 +45,7 @@ var flagPictures = [
 'Algeria-flag.png',
 'Andorra-flag.png',
 'Angola-flag.png',
-'Antigua-and-barbuda-flag.png',
+'Antigua-and-Barbuda-flag.png',
 'Argentina-flag.png',
 'Armenia-flag.png',
 'Australia-flag.png',

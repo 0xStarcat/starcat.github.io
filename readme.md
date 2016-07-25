@@ -2,6 +2,12 @@
 
 **Jeff's Game**
 
+**CONTROLS**
+Use W-A-S-D keys to pilot the ship.
+Use arrow keys to play the rhythm game.
+
+You can adjust the steering on the start page. 
+
 **DESCRIPTION**
 
 A cross between a flight sim and DDR. 
