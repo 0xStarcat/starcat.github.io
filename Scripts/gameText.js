@@ -31,6 +31,12 @@ var characterQuotes = [
 "“The stars look very different today.”"
  ];
 
+//'Adjective' + BACKGROUND + NAME +, was a + ADJECTIVE NOUN + to the people of + NATION. At a + EVENT + in PLACE,
+    //NAME was quoted as saying + QUOTE.
+
+var articleAdjective = ['Esteemed', 'Distinguished', 'World-reknown', 'Highly-regarded'];
+var articleNoun = ['cultural icon', 'beloved hero', 'symbol of achievement', 'portrait of success'];
+var articleEvent = ['recent press conference', 'recent interview at home', 'recent interview on NPR', 'meeting with the press'];
 
 
 var flagPictures = [

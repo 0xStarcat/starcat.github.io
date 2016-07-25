@@ -240,7 +240,7 @@ setTimeout(function(){
     }, 11000)
     setTimeout(function(){
       $textNotification.css('opacity', '0');
-      startMainGame(0.07, 55000, 20000); //Short 3 min game, 3 mini games inside
+      startMainGame(0.07, 45000, 20000); //Short 3 min game, 3 mini games inside
       startRumble = true;
       startMeter = true;
     }, 15000)
@@ -281,6 +281,9 @@ function loadCharacterCreation(){
 }
 
 function fakeLoadingScreen(){
+
+  var $fakeLoadingScreenHTML = $('<div id = "fakeLoadWrapper"><div id ="fakeLoadImageContainer"><img id="fakeLoadImage" src="images/92D-re-entry.png"></div><div id ="fakeLoadText">Loading</div></div>')
+  $('body').append($fakeLoadingScreenHTML);
 
   console.log('fake loading screen... nice work')
   $fakeLoadText = $('#fakeLoadText');
@@ -330,11 +333,11 @@ function fakeLoadingScreen(){
     }, 10000);
 }
 
-fakeLoadingScreen();
 
 function loadNewsPaper(){
   $newspaper = $('<div id = "newspaperWrapper"><img id ="newspaperBackground" src=""><div id="newspaperName">The</div><div id = "headline"><div id="headlineText">HEADLINE NEWS HAPPENING NOW</div></div><div id="articleContainer"><div id="articleText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div></div><div id = "sidebarColumn"><div class="sidebarItem" id="sb1" >Lorem ipsum dolor sit amet</div><div class="sidebarItem" id="sb2">Lorem ipsum dolor sit amet</div><div class="sidebarItem" id="sb3">Lorem ipsum dolor sit amet</div></div><button class="screenButton" id="restartGame">Restart?</button></div>');
-
+  $articleText = $('#articleText');
+  $articleText.html(articleString);
     $('body').append($newspaper);
 
    $headline = $('#headlineText');
@@ -388,6 +391,6 @@ function resetEverything(){
 //LOAD START SCREEN ON PAGE LOAD
 //##########
 
-// $('body').empty();
-// loadStartScreen();
+$('body').empty();
+loadStartScreen();
 

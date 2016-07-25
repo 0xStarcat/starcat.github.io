@@ -225,9 +225,10 @@ function createCharacterEventListeners(){
 
       if (searchNation === flagPictures[i].substr(0, 1))
       {
-        $flagPicture.css('background', 'url(images/flags64/'+flagPictures[i])+'))';
+        ;
         var nation = flagPictures[i];
         flagPicturesIndex = i;
+        $flagPicture.attr('src', 'images/flags64/'+flagPictures[flagPicturesIndex])
         nation = nation.replace(/flag/, '').replace(/-/g, ' ').replace('.png', '');
         $charNationality.val(nation);
         break
@@ -327,9 +328,18 @@ function createCharacterEventListeners(){
       astronaut4 = newAstronaut;
       console.log(astronaut4);
       console.log('start main game!');
-      resetPage();
-      $('body').empty();
-      fakeLoadingScreen();
+
+      $('body').animate({
+        'opacity': '0'
+      },2000, function(){
+        resetPage();
+        $('body').empty();
+        fakeLoadingScreen();
+        $('body').animate({
+          'opacity' : '1'
+        }, 2000);
+      })
+
       break;
     }
 

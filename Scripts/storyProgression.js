@@ -9,6 +9,8 @@ console.log('story script Loaded');
   var chosenPenalty = undefined;
   var firstRhythmGame = undefined; //First timeout for rhythm game
   var miniGameStart = undefined; //interval for rest of mini games
+  var astronautsArray = [];
+  var deadAstronautsArray = [];
 $(document).ready(function(){
 console.log('Story... check!');
 
@@ -260,10 +262,37 @@ function endOfGameReport(){
   console.log('Cure for Common Cold is alive? '+penaltyText.biologyExperiments[4].alive);
   console.log('Space Hampster alive?'+penaltyText.spaceHamsters[4].alive);
 
-  generateNewspaper(livingAstronauts,astronaut1.alive,astronaut2.alive,astronaut3.alive,astronaut4.alive,penaltyText.biologyExperiments[4].alive,penaltyText.spaceHamsters[4].alive );
+  astronautsArray = [astronaut1, astronaut2, astronaut3, astronaut4];
+  deadAstronautsArray = [];
+  for (var i = 0; i < astronautsArray.length; i++)
+  {
+    if (astronautsArray[i].alive === false)
+    {
+      deadAstronautsArray.push(astronautsArray[i]);
+    }
+  }
+
+  generateNewspaper(livingAstronauts,deadAstronautsArray,penaltyText.biologyExperiments[4].alive,penaltyText.spaceHamsters[4].alive);
 }
 
-function generateNewspaper(livingAstronauts, a1,a2,a3,a4,bio,hamster){
+function generateNewspaper(livingAstronauts,deadAstronautsArray,bio,hamster){
+
+   var createArticleText = function(){
+    for (var i = 0; i<deadAstronautsArray.length; i++)
+    {
+      var randomWord = Math.floor(Math.random() * articleAdjective.length);
+
+      var snippet = '\n'+articleAdjective[randomWord] + ' ' + deadAstronautsArray[i].background + ' ' + deadAstronautsArray[i].name + '('+deadAstronautsArray[i].age+') was a ' +
+      articleNoun[randomWord] + ' to the people of ' + deadAstronautsArray[i].nationality +'. At a ' + articleEvent[randomWord] + ', ' + deadAstronautsArray[i].name +
+      ' was quoted as saying ' + deadAstronautsArray[i].quote;
+
+      articleAdjective = articleAdjective.splice(randomWord, 1);
+      articleNoun = articleNoun.splice(randomWord, 1);
+      articleEvent = articleEvent.splice(randomWord, 1);
+
+      articleString += snippet;
+    }
+  }
 
   if (livingAstronauts === 0)
   {
@@ -271,40 +300,44 @@ function generateNewspaper(livingAstronauts, a1,a2,a3,a4,bio,hamster){
     sidebar1String = "Nations in mourning";
     sidebar2String = "The President Speaks";
     sidebar3String = "Bucky the Hamster Dies During Shuttle Mission";
-
+    articleString = "On a windy afternoon in Texas, the Space Shuttle Panoglin was seen falling to Earth as it re-entered the Earth's atmosphere after a two week mission aboard the International Space Station. All astronauts on board were lost. The events surrounding the tragic end to the mission are still under investigation by NASA, who witnessed a similar disaster in 2003 with the Shuttle Columbia. Along with the crew, the Pangolin was also lost vital research on a cure to the common cold, as well as the beloved space hamster and national icon, Bucky.";
+    createArticleText();
   } else if (livingAstronauts === 4)
   {
-    headlineString = "Wookie Discovered in Texas!";
+    headlineString = "Local Cat Claws President";
     sidebar1String = "Sports Game Delay Causes Riot.";
+    articleString = "The President received an unpleasant surprise today following a visit by local kitten Purry Purringtons during the president's weekly reality-show themed broadcast to the nation. The secret service was immediately ushered the president back to his gold-encrusted compound deep underground a not-unmarked skyscraper in Atlantic City. The current whereabouts of the kitten are unknown, but following his encounter with the Purry Purringtons the president had this to say: “That cat is a disgrace. A low-life. I have fifty-nine show-dogs. They work for me. Dogs are the best. Let me tell you.”";
       if (hamster)
             {
               sidebar2String = "Bucky the Hamster Returns from Space!";
             } else if (!hamster)
             {
-              sidebar2String = "Bucky the Hamster Dies During Shuttle Mission.";
+              sidebar2String = "Bucky the Hamster Perishes During Shuttle Mission.";
             }
       if (bio)
             {
               sidebar3String = "Vaccine Developed on Shuttle Shows Promise";
             } else if (!bio)
             {
-              sidebar3String = "Falling in Love Causes Cancer, Study Finds";
+              sidebar3String = "Pokemon GO Leading Cause of Cancer, Study Finds";
             }
   } else {
 
 
     switch (livingAstronauts)
     {
-      case 1:
+      case 3:
       {
         headlineString = "Astronaut Killed During Mission!";
         sidebar1String = "Nation in Mourning";
+        articleString = "An astronaut was killed early this afternoon during the Space Shuttle Pangolin's return to Earth following a two week research mission at the International Space Station. The events surrounding the astronaut's death are still unclear, but NASA reports that the shuttle experienced a “critical failure” during re-entry and the rest of the crew is unharmed. This is NASA's most recent tragedy during a space mission following the 2003 Space Shuttle Columbia Disaster. A full investigation is under way.";
+        createArticleText();
         if (hamster)
           {
             sidebar2String = "Bucky the Hamster Returns from Space!";
           } else if (!hamster)
           {
-            sidebar2String = "Bucky the Hamster Dies During Shuttle Mission";
+            sidebar2String = "Bucky the Hamster Perishes During Shuttle Mission";
           }
         sidebar3String = "Wookie Discovered in Texas!";
         break
@@ -313,32 +346,45 @@ function generateNewspaper(livingAstronauts, a1,a2,a3,a4,bio,hamster){
       {
         headlineString = "Astronauts Killed During Mission!"
         sidebar1String = "Nations in Mourning"
+        articleString = "Two astronauts were killed early this afternoon during the Space Shuttle Pangolin's return to Earth following a two week research mission at the International Space Station. The events surrounding the astronauts' death are still unclear, but NASA reports that the shuttle experienced a “critical failure” during re-entry and the rest of the crew is unharmed. This is NASA's most recent tragedy during a space mission following the 2003 Space Shuttle Columbia Disaster. A full investigation is under way.";
+
+        createArticleText();
         if (hamster)
           {
             sidebar2String = "Bucky the Hamster Returns from Space!"
           } else if (!hamster)
           {
-            sidebar2String = "Bucky the Hamster Dies During Shuttle Mission"
+            sidebar2String = "Bucky the Hamster Perishes During Shuttle Mission"
           }
 
         sidebar3String = "Wookie Discovered in Texas!"
       }
-      case 3:
+      case 1:
       {
         headlineString = "Astronauts Killed During Mission!"
         sidebar1String = "Nations in Mourning"
+        articleString = "Three astronauts were killed early this afternoon during the Space Shuttle Pangolin's return to Earth following a two week research mission at the International Space Station. The events surrounding the astronauts' death are still unclear, but NASA reports that the shuttle experienced a “critical failure” during re-entry and the rest of the crew is unharmed. This is NASA's most recent tragedy during a space mission following the 2003 Space Shuttle Columbia Disaster. A full investigation is under way.";
+
+        createArticleText();
         if (hamster)
           {
             sidebar2String = "Bucky the Hamster Returns from Space!"
           } else if (!hamster)
           {
-            sidebar2String = "Bucky the Hamster Dies During Shuttle Mission"
+            sidebar2String = "Bucky the Hamster Perishes During Shuttle Mission"
           }
         sidebar3String = "Wookie Discovered in Texas!"
         break
       }
     }
+    //'Adjective' + BACKGROUND + NAME +, was a + ADJECTIVE NOUN + to the people of + NATION. At a + EVENT + in PLACE,
+    //NAME was quoted as saying + QUOTE.
+
   }
+
+
+
+    console.log(articleString);
 
   loadNewsPaper();
 }

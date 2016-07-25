@@ -36,7 +36,7 @@
   line-height: 150%;
   height: 8vw;
   width: 55vw;
-  top: 18vw;
+  top: 16vw;
   left: 22vw;
   text-align: center;
 }
@@ -51,13 +51,14 @@
   position: fixed;
   display: block;
   text-align: center;
-  font-size: 2vw;
-  line-height: 120%;
+  font-size: 1.5vw;
+  line-height: 115%;
   height: 60vw;
   width: 50vw;
-  top: 24vw;
+  top: 22vw;
   left: 24vw;
   text-align: justify;
+  overflow: scroll;
 
 }
 

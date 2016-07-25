@@ -234,7 +234,7 @@ var rhythmGame = function(length){
       {
       clearInterval(countDownTeammate);
       $textNotification.text("");
-      rainOfArrows(length, 2000);
+      rainOfArrows(length);
       } else if (countDown < 0 && someoneChosen === false)
       {
         clearInterval(countDownTeammate);
