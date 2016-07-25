@@ -244,7 +244,7 @@ setTimeout(function(){
       $textNotification.text("Peripheral systems may be affected during re-entry.");
     }, 8000)
     setTimeout(function(){
-      $textNotification.text("Have a pleasant Day.");
+      $textNotification.text("Have a pleasant day.");
       $('.meter').animate({
         opacity : 1
       }, 2000);

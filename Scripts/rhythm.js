@@ -44,7 +44,7 @@ if (miniGameActive)
         if (e.keyCode === theKey || e.which === theKey)
         {
           //console.log(direction+' pressed. ARROW CENTER = '+(arrow.position().top + arrow.innerHeight() / 2)+' ZONE BOTTOM = '+rhythmZoneBottom+ ' ZONE TOP = '+rhythmZoneTop)
-          if ((arrow.position().top + arrow.innerHeight() / 2) <= rhythmZoneBottom + 5 && (arrow.position().top + arrow.innerHeight() / 2) >= rhythmZoneTop - 5)
+          if ((arrow.position().top + arrow.innerHeight() / 2) <= rhythmZoneBottom + 2 && (arrow.position().top + arrow.innerHeight() / 2) >= rhythmZoneTop - 2)
           {
 
             arrowBackground.css('background', 'green');

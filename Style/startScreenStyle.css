@@ -51,10 +51,11 @@ body{
 #startScreenTitle{
   width: 100vw;
   height: 30vh;
-  font-size: 88px;
+  font-size: 128px;
   line-height: 400%;
   color: rgba(222, 255, 255, 1);
   text-align: center;
+  font-family: 'Nixie One', cursive;
 }
 
 #startFlexBox{
