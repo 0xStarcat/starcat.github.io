@@ -25,12 +25,14 @@ HTML, CSS, Javascript/Jquery. No frameworks, no APIs.
     7) The player can restart
 
 *Silver Goals*
+
     1) The cockpit has a static interior image to give a better graphical representation of the PoV. 
     2) The player must create or choose 3 astronauts to have on board the spacecraft to add a personal stake to the game.
     3) The rhythm game is triggered at random intervals via text notification and the player must choose an astronaut to "risk" to solve a problem on the spacecraft without pausing the game. 
     4) Failure of the rhythm game will make the piloting game harder and make you lose an astronaut. If no astronauts remain, the rhythm game will be impossible to beat.
 
 *Gold Goals*
+
     1) A newspaper mockup article displays the outgame of the player's game (win/lose) with a short blurb about the details (astronauts lost, etc).
     2) There is a vanishing point perspective on the landscape in the game. 
 
