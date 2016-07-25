@@ -51,22 +51,49 @@ function setFlightEventListeners()
       {
 
         //console.log('A button down');
-        aLeft = true;
+        if (inverted)
+        {
+          aLeft = true;
+        }else {
+          dRight = true;
+        }
+
       }
       if (e.keyCode === 87 || e.which === 87)
       {
         //console.log('W button down');
-        wUp = true;
+
+        if (inverted)
+        {
+          wUp = true;
+        }else {
+          sDown = true;
+        }
+
       }
       if (e.keyCode === 68 || e.which === 68)
       {
         //console.log('D button down');
-        dRight = true;
+
+        if (inverted)
+        {
+          dRight = true;
+        }else {
+          aLeft = true;
+        }
+
       }
       if (e.keyCode === 83 || e.which === 83)
       {
         //console.log('s button down');
-        sDown = true;
+
+        if (inverted)
+        {
+          sDown = true;
+        }else {
+          wUp = true;
+        }
+
       }
     });
 
@@ -74,22 +101,47 @@ function setFlightEventListeners()
       if (e.keyCode === 65 || e.which === 65)
       {
         //console.log('A button Up');
-        aLeft = false;
+        if (inverted)
+        {
+          aLeft = false;
+        }else {
+          dRight = false;
+        }
+
       }
       if (e.keyCode === 87 || e.which === 87)
       {
         //console.log('W button Up');
-        wUp = false;
+        if (inverted)
+        {
+          wUp = false;
+        }else {
+          sDown = false;
+        }
+
       }
       if (e.keyCode === 68 || e.which === 68)
       {
         //console.log('D button Up');
-        dRight = false;
+
+        if (inverted)
+        {
+          dRight = false;
+        }else {
+          aLeft = false;
+        }
+
       }
       if (e.keyCode === 83 || e.which === 83)
       {
         //console.log('s button Up');
-        sDown = false;
+        if (inverted)
+        {
+          sDown = false;
+        }else {
+          wUp = false;
+        }
+
       }
     })
   }

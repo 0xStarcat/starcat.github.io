@@ -107,6 +107,8 @@ body{
 #optionsButton{
   position: relative;
   margin-top: 30vh;
+  font-size: 14px;
+  line-height: 120%;
 }
 
 #optionsButton:hover{

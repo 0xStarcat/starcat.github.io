@@ -73,6 +73,8 @@ var startRumble = false;
 var startMeter = false;
 
 
+//Controls
+var inverted = false;
 
 
 $(document).ready(function(){
@@ -81,9 +83,11 @@ $(document).ready(function(){
 
 });
 
+
+
 function loadStartScreen(){
 
-  var $startScreenHTML = $('<div id="startScreenContainer"><div id="startScreenGradient"><img id="startScreenImage" src=""></div><div id="startScreenTitle">Game Title</div><div id="startFlexBox"><div class="thirds" id="firstThird"><button class= "screenButton" id="optionsButton">Options</button></div><div class="thirds" id="secondThird"><button class= "screenButton" id="startButton">Start</button></div><div class="thirds" id="finalThird"><button class= "screenButton" id="creditsButton">Credits</button></div></div></div></div>');
+  var $startScreenHTML = $('<div id="startScreenContainer"><div id="startScreenGradient"><img id="startScreenImage" src=""></div><div id="startScreenTitle">Game Title</div><div id="startFlexBox"><div class="thirds" id="firstThird"><button class= "screenButton" id="optionsButton">Default Controls</button></div><div class="thirds" id="secondThird"><button class= "screenButton" id="startButton">Start</button></div><div class="thirds" id="finalThird"><button class= "screenButton" id="creditsButton">Credits</button></div></div></div></div>');
   $('body').append($startScreenHTML);
   $startButton = $('#startButton');
   $optionsButton = $('#optionsButton');
@@ -106,6 +110,15 @@ function loadStartScreen(){
   $optionsButton.on('click', function(){
     console.log('options button clicked!')
 
+    if (inverted)
+    {
+      $optionsButton.text('Default Controls');
+      inverted = false;
+    } else if (!inverted){
+      $optionsButton.text('Inverted Controls');
+      inverted = true;
+    }
+
   })
   $creditsButton.on('click', function(){
     console.log('credits button clicked!')
@@ -123,6 +136,7 @@ function loadStartScreen(){
 
   animateStartScreen();
 }
+
 
 function loadCreditsScreen(){
   var creditScreenHTML = $('<div id="startScreenContainer"><div id="startScreenGradient"><button class="screenButton" id ="backButton">Back</button><div id="creditsScreen"><p class="creditsSpan">Made by</p><p class="creditsLine">Jeff Ahking</p><p class="creditsSpan">Cockpit Image by</p><p class="creditsLine">Justin Haynes - http://justinhaynes89.deviantart.com<br></p><p class="creditsSpan">Space Background by </p><p class="creditsLine">Mitsukai Inki - deviantArt http://mitsukai-inki.deviantart.com/</p><p class="creditsSpan">All other images</p><p class="creditsLine">Licensed for free use without attribution<br></p></div></div></div>');
@@ -211,7 +225,7 @@ function startIntroduction(){
   console.log('Introduction... go!');
 
   resetEverything();
-  $angleBox.css('opacity', '0');
+
   $('.meter').css('opacity', '0');
 
 //3 seconds
@@ -231,16 +245,15 @@ setTimeout(function(){
     }, 8000)
     setTimeout(function(){
       $textNotification.text("Have a pleasant Day.");
+      $('.meter').animate({
+        opacity : 1
+      }, 2000);
 
-      $angleBox.animate({
-        'opacity': '1'}, 3000, function(){
-           $('.meter').animate({'opacity': '1'}, 1000);
-        });
 
     }, 11000)
     setTimeout(function(){
       $textNotification.css('opacity', '0');
-      startMainGame(0.07, 45000, 20000); //Short 3 min game, 3 mini games inside
+      startMainGame(0.065, 45000, 20000); //Short 3 min game, 3 mini games inside
       startRumble = true;
       startMeter = true;
     }, 15000)

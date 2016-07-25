@@ -306,7 +306,7 @@ function generateNewspaper(livingAstronauts,deadAstronautsArray,bio,hamster){
   {
     headlineString = "Local Cat Claws President";
     sidebar1String = "Sports Game Delay Causes Riot.";
-    articleString = "The President received an unpleasant surprise today following a visit by local kitten Purry Purringtons during the president's weekly reality-show themed broadcast to the nation. The secret service was immediately ushered the president back to his gold-encrusted compound deep underground a not-unmarked skyscraper in Atlantic City. The current whereabouts of the kitten are unknown, but following his encounter with the Purry Purringtons the president had this to say: “That cat is a disgrace. A low-life. I have fifty-nine show-dogs. They work for me. Dogs are the best. Let me tell you.”";
+    articleString = "The President received an unpleasant surprise today following a visit by local kitten Purry Purringtons during the president's weekly reality-show themed broadcast to the nation. The secret service immediately ushered the president back to his gold-encrusted compound deep underground a not-unmarked skyscraper in Atlantic City. The current whereabouts of the kitten are unknown, but following his encounter with Purry Purringtons the president had this to say: “That cat is a disgrace. A low-life. I have fifty-nine show-dogs. They work for me. Dogs are the best. Let me tell you.”";
       if (hamster)
             {
               sidebar2String = "Bucky the Hamster Returns from Space!";
@@ -328,13 +328,13 @@ function generateNewspaper(livingAstronauts,deadAstronautsArray,bio,hamster){
     {
       case 3:
       {
-        headlineString = "Astronaut Killed During Mission!";
+        headlineString = "Astronaut Killed During Mission";
         sidebar1String = "Nation in Mourning";
         articleString = "An astronaut was killed early this afternoon during the Space Shuttle Pangolin's return to Earth following a two week research mission at the International Space Station. The events surrounding the astronaut's death are still unclear, but NASA reports that the shuttle experienced a “critical failure” during re-entry and the rest of the crew is unharmed. This is NASA's most recent tragedy during a space mission following the 2003 Space Shuttle Columbia Disaster. A full investigation is under way.";
         createArticleText();
         if (hamster)
           {
-            sidebar2String = "Bucky the Hamster Returns from Space!";
+            sidebar2String = "Bucky the Hamster Returns from Space";
           } else if (!hamster)
           {
             sidebar2String = "Bucky the Hamster Perishes During Shuttle Mission";
@@ -344,7 +344,7 @@ function generateNewspaper(livingAstronauts,deadAstronautsArray,bio,hamster){
       }
       case 2:
       {
-        headlineString = "Astronauts Killed During Mission!"
+        headlineString = "Two Astronauts Killed During Mission"
         sidebar1String = "Nations in Mourning"
         articleString = "Two astronauts were killed early this afternoon during the Space Shuttle Pangolin's return to Earth following a two week research mission at the International Space Station. The events surrounding the astronauts' death are still unclear, but NASA reports that the shuttle experienced a “critical failure” during re-entry and the rest of the crew is unharmed. This is NASA's most recent tragedy during a space mission following the 2003 Space Shuttle Columbia Disaster. A full investigation is under way.";
 
@@ -361,7 +361,7 @@ function generateNewspaper(livingAstronauts,deadAstronautsArray,bio,hamster){
       }
       case 1:
       {
-        headlineString = "Astronauts Killed During Mission!"
+        headlineString = "Three Astronauts Killed During Mission"
         sidebar1String = "Nations in Mourning"
         articleString = "Three astronauts were killed early this afternoon during the Space Shuttle Pangolin's return to Earth following a two week research mission at the International Space Station. The events surrounding the astronauts' death are still unclear, but NASA reports that the shuttle experienced a “critical failure” during re-entry and the rest of the crew is unharmed. This is NASA's most recent tragedy during a space mission following the 2003 Space Shuttle Columbia Disaster. A full investigation is under way.";
 
