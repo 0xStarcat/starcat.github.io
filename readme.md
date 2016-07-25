@@ -14,7 +14,7 @@
 - Create a team of 4 astronauts and personalize them.
 - Land the shuttle by keeping red dot in the center of moving circle
 - Occasionally solve shuttle malfunctions by risking an astronaut with rhythm game.
-- Upon win/lose/competion, newspaper appears detailing outcome of game and short bio of any astronauts who die.
+- Upon win/lose/competion, newspaper appears detailing outcome of game and bio of any astronauts who die.
 
 **CODE USED**
 
@@ -67,7 +67,8 @@ flags from: http://www.customicondesign.com/free-icons/flag-icon-set/all-in-one-
 
 newspaper from http://clipartkid.com licensed free without attribution
 
+Re-entry diagrams from http://quarkology.com/12-physics/92-space/images/92D-re-entry.png
+
 Inspiration: https://www.youtube.com/watch?v=J8AisTXgAGA
 
-Re-entry diagrams from http://quarkology.com/12-physics/92-space/images/92D-re-entry.png
 
