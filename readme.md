@@ -3,19 +3,22 @@
 **Jeff's Game**
 
 **CONTROLS**
-Use W-A-S-D keys to pilot the ship.
-Use arrow keys to play the rhythm game.
 
-You can adjust the steering on the start page. 
+- Use W-A-S-D keys to pilot the ship.
+- Use arrow keys to play the rhythm game.
+- You can adjust the steering on the start page. 
 
 **DESCRIPTION**
 
-A cross between a flight sim and DDR. 
-
+- A cross between a flight sim and DDR. 
+- Create a team of 4 astronauts and personalize them.
+- Land the shuttle by keeping red dot in the center of moving circle
+- Occasionally solve shuttle malfunctions by risking an astronaut with rhythm game.
+- Upon win/lose/competion, newspaper appears detailing outcome of game and short bio of any astronauts who die.
 
 **CODE USED**
 
-HTML, CSS, Javascript/Jquery. No frameworks, no APIs. 
+- HTML, CSS, Javascript/Jquery. No frameworks, no APIs. 
 
 
 **PROJECT GOALS**
@@ -63,6 +66,8 @@ Astronaut images from: http://www.clipartlord.com/ labeled for free reuse withou
 flags from: http://www.customicondesign.com/free-icons/flag-icon-set/all-in-one-country-flag-icon-set/ labeled free for reuse without attribution
 
 newspaper from http://clipartkid.com licensed free without attribution
+
+Inspiration: https://www.youtube.com/watch?v=J8AisTXgAGA
 
 Re-entry diagrams from http://quarkology.com/12-physics/92-space/images/92D-re-entry.png
 

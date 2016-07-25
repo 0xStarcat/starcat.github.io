@@ -275,7 +275,7 @@ function generateNewspaper(livingAstronauts,deadAstronautsArray,bio,hamster){
     {
       var randomWord = Math.floor(Math.random() * articleAdjective.length);
 
-      var snippet = '\n'+articleAdjective[randomWord] + ' ' + deadAstronautsArray[i].background + ' ' + deadAstronautsArray[i].name + '('+deadAstronautsArray[i].age+') was a ' +
+      var snippet = <'\n'+articleAdjective[randomWord] + ' ' + deadAstronautsArray[i].background + ' ' + deadAstronautsArray[i].name + '('+deadAstronautsArray[i].age+') was a ' +
       articleNoun[randomWord] + ' to the people of ' + deadAstronautsArray[i].nationality +'. At a ' + articleEvent[randomWord] + ', ' + deadAstronautsArray[i].name +
       ' was quoted as saying ' + deadAstronautsArray[i].quote;
 
@@ -337,7 +337,7 @@ function generateNewspaper(livingAstronauts,deadAstronautsArray,bio,hamster){
       }
       case 2:
       {
-        headlineString = "Two Astronauts Killed During Mission"
+        headlineString = "Two Astronauts Die"
         sidebar1String = "Nations in Mourning"
         articleString = "Two astronauts were killed early this afternoon during the Space Shuttle Pangolin's return to Earth following a two week research mission at the International Space Station. The events surrounding the astronauts' death are still unclear, but NASA reports that the shuttle experienced a “critical failure” during re-entry and the rest of the crew is unharmed. This is NASA's most recent tragedy during a space mission following the 2003 Space Shuttle Columbia Disaster. A full investigation is under way.";
 
@@ -350,11 +350,11 @@ function generateNewspaper(livingAstronauts,deadAstronautsArray,bio,hamster){
             sidebar2String = "Bucky the Hamster Perishes During Shuttle Mission"
           }
 
-        sidebar3String = "Wookie Discovered in Texas!"
+        sidebar3String = "Pokemon GO Leading Cause of Cancer, Study Finds"
       }
       case 1:
       {
-        headlineString = "Three Astronauts Killed During Mission"
+        headlineString = "Three Astronauts Die"
         sidebar1String = "Nations in Mourning"
         articleString = "Three astronauts were killed early this afternoon during the Space Shuttle Pangolin's return to Earth following a two week research mission at the International Space Station. The events surrounding the astronauts' death are still unclear, but NASA reports that the shuttle experienced a “critical failure” during re-entry and the rest of the crew is unharmed. This is NASA's most recent tragedy during a space mission following the 2003 Space Shuttle Columbia Disaster. A full investigation is under way.";
 
@@ -366,7 +366,7 @@ function generateNewspaper(livingAstronauts,deadAstronautsArray,bio,hamster){
           {
             sidebar2String = "Bucky the Hamster Perishes During Shuttle Mission"
           }
-        sidebar3String = "Wookie Discovered in Texas!"
+        sidebar3String = "Pokemon GO Leading Cause of Cancer, Study Finds"
         break
       }
     }
