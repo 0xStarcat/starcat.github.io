@@ -275,7 +275,7 @@ function generateNewspaper(livingAstronauts,deadAstronautsArray,bio,hamster){
     {
       var randomWord = Math.floor(Math.random() * articleAdjective.length);
 
-      var snippet = <'\n'+articleAdjective[randomWord] + ' ' + deadAstronautsArray[i].background + ' ' + deadAstronautsArray[i].name + '('+deadAstronautsArray[i].age+') was a ' +
+      var snippet = '\n'+articleAdjective[randomWord] + ' ' + deadAstronautsArray[i].background + ' ' + deadAstronautsArray[i].name + '('+deadAstronautsArray[i].age+') was a ' +
       articleNoun[randomWord] + ' to the people of ' + deadAstronautsArray[i].nationality +'. At a ' + articleEvent[randomWord] + ', ' + deadAstronautsArray[i].name +
       ' was quoted as saying ' + deadAstronautsArray[i].quote;
 
