@@ -1,4 +1,4 @@
-```html
+
 
 **Jeff's Game**
 
@@ -42,6 +42,5 @@ HTML, CSS, Javascript/Jquery. No frameworks, no APIs.
     4) … I don't want highlights or text selections to appear that would break my immersion or remind me that I'm playing in a browser.
     5) … I want don't want the page to reload as I navigate through different screens to maintain my immersion.
     
-    
-```  
+ 
 
