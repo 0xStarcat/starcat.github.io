@@ -95,7 +95,7 @@
   top: 2vw;
   left: 2vw;
   background: rgba(55,55,122, 0.8);
-
+  display: none;
 }
 
 #restartGame:hover{
