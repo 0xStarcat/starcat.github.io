@@ -44,7 +44,7 @@ if (miniGameActive)
         if (e.keyCode === theKey || e.which === theKey)
         {
           //console.log(direction+' pressed. ARROW CENTER = '+(arrow.position().top + arrow.innerHeight() / 2)+' ZONE BOTTOM = '+rhythmZoneBottom+ ' ZONE TOP = '+rhythmZoneTop)
-          if ((arrow.position().top + arrow.innerHeight() / 2) <= rhythmZoneBottom + 2 && (arrow.position().top + arrow.innerHeight() / 2) >= rhythmZoneTop - 2)
+          if ((arrow.position().top + arrow.innerHeight() / 2) <= rhythmZoneBottom && (arrow.position().top + arrow.innerHeight() / 2) >= rhythmZoneTop)
           {
 
             arrowBackground.css('background', 'green');
@@ -69,6 +69,7 @@ if (miniGameActive)
             $angleBox.css({
               'box-shadow': '0px 0px 0px '+miniGameCounter*10+'px rgba(255, 255, 255, 0.5)'
             });
+            arrowBackground.css('background', 'red');
             isActive = false;
 
           }

@@ -286,9 +286,9 @@ function generateNewspaper(livingAstronauts,deadAstronautsArray,bio,hamster){
       articleNoun[randomWord] + ' to the people of ' + deadAstronautsArray[i].nationality +'. At a ' + articleEvent[randomWord] + ', ' + deadAstronautsArray[i].name +
       ' was quoted as saying ' + deadAstronautsArray[i].quote;
 
-      articleAdjective = articleAdjective.splice(randomWord, 1);
-      articleNoun = articleNoun.splice(randomWord, 1);
-      articleEvent = articleEvent.splice(randomWord, 1);
+      articleAdjective.splice(randomWord, 1);
+      articleNoun.splice(randomWord, 1);
+      articleEvent.splice(randomWord, 1);
 
       articleString += snippet;
     }

@@ -206,10 +206,10 @@
 #fakeLoadImageContainer{
   display: block;
   position: fixed;
-  height: 50vh;
-  width: 80vw;
-  top: 10vh;
-  left: 10vw;
+  height: 40vh;
+  width: 60vw;
+  top: 30vh;
+  left: 20vw;
 
 
 }
