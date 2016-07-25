@@ -4,7 +4,7 @@
 
 **< DESCRIPTION >**
 
-A cross between a flight sim and guitar hero. 
+A cross between a flight sim and DDR. 
 
 
 **< CODE USED >**
