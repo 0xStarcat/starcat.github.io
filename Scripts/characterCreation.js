@@ -351,7 +351,7 @@ function createCharacterEventListeners(){
 function resetPage(){
 
   flagPicturesIndex = 0;
-  $flagPicture.attr('src', 'images/globe.png');
+  $flagPicture.attr('src', 'images/Globe.png');
   $charPortrait.attr('src' , 'images/astronaut1.png');
   pictureIndex = 0;
   $charName.val('< Name >');
