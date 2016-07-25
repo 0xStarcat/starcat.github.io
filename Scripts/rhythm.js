@@ -14,6 +14,7 @@ $('document').ready(function(){
   addRhythmListeners()
 });
 
+//Create individual arrows here, attaches event listener that corresponds to each arrow created here
 var createArrow = function(direction, speed){
   var isActive = true;
 
@@ -61,7 +62,7 @@ if (miniGameActive)
             //console.log(direction+' arrow in Rhythm!');
 
 
-             //$(window).off('keydown');
+
           } else if (arrow.position().top >= rhythmZoneTop - 300){
             //console.log(direction+' #####Off rhythm!######');
             miniGameCounter-=0.5;
@@ -104,6 +105,7 @@ if (miniGameActive)
   }
 };
 
+//Controls for mini-game
 function addRhythmListeners(){
 
   $(window).on('keydown', function(e){
@@ -192,7 +194,7 @@ function addRhythmListeners(){
   });
 }
 
-//Win/Lose conditions for Mini-game set here
+//Win/Lose conditions for Mini-game set/checked here
 function checkCounter(){
      if (miniGameCounter <= 0 && miniGameActive)
     {
@@ -206,7 +208,7 @@ function checkCounter(){
     }
 
 }
-
+//Shows portraits and arrows and creates interval for arrow rain
 var rhythmGame = function(length){
 //Displays setPenalty text for 4 seconds
 //Then 10 seconds to choose teammate to send
@@ -225,6 +227,8 @@ var rhythmGame = function(length){
 
     $portraits.show();
 
+
+//10 seconds to choose a teammate. If none chosen, fail mini-game without playing.
     var countDown = 10;
     var countDownTeammate = setInterval(function(){
      countDown--;
@@ -248,15 +252,10 @@ var rhythmGame = function(length){
 
   }, 4000)
 
-
-  //First show portraits of astronauts.
-
-
-
-
-
 }
 
+
+//Length = Mini-game length, speed is the speed of arrows. Currently using var arrowSpeed = 2000 instead of this argument.
 function rainOfArrows(length, speed){
 
   if (someoneChosen === false)
@@ -299,7 +298,7 @@ function rainOfArrows(length, speed){
 
 }
 
-
+//Reset style elements and remove arrows from screen when mini-game ends
 function clearGame(){
 
   clearInterval(rhythmGameRun);

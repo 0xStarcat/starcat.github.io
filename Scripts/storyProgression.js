@@ -17,6 +17,7 @@ console.log('Story... check!');
 
 });
 
+//Display penalty for losing mini game.
 var setPenaltyText = function(){
   chosenPenalty = Math.floor(Math.random() * penalties.length)
   console.log(String(penalties[chosenPenalty]));
@@ -26,19 +27,10 @@ var setPenaltyText = function(){
     'opacity': '1'
   }, 2000);
 
-  // , function(){
-
-  //   setTimeout(function(){
-
-  //     $textNotification.css({
-  //       'opacity' : '0'
-  //     })
-  //   }, 4000)
-  // });
-
-
 }
 
+
+//Show penalty text, call correct function, remove penalty from array;
 function miniGameConsequence(result){
 
   //var removePenaltyAt = penalties.indexOf(penalties[chosenPenalty]);
@@ -81,7 +73,6 @@ function miniGameConsequence(result){
         'opacity' : '0'
       })
        // Remove penalty from list
-      //penaltyFunctions.splice(chosenPenalty, 1);
       penalties.splice(chosenPenalty, 1);
       console.log(penalties);
     }, 4000)
@@ -137,26 +128,27 @@ movementMax = 4;
 unstableCockpit = true;
 }
 
+
+//########
+//Start Main Game
+//########
+
+//Sets main game parameters.
+//Game Length = how long the flying game is/how long it takes to win. It is currently passed a 'step value'
+//because the win condition triggers when image background reaches a certain position-bottom value.
+//Need to calculate step value.
 //See chart below for guide to setting gameLength.
-//miniGameInterval is how many MS between mini-games.
-//miniGame Length is how long the miniGame lasts.
-//See chart in oneNote document for mini-game interval and length guide
+
+//miniGameInterval sets the time between mini-game events
+//mini-gameLength sets how long the mini game lasts. Make sure mini-game Interval is larger than this by at least 20 seconds.
+
+
 //Sky starts at -280
 //Goal is to get sky Bottom: 30 ||| ground top: 60
   //So there are 250 steps to make with game updating every 50ms
   //20 updates per second @ 50ms
   //Set game length using skyStep variable - this is the amount the sky moves with each update frame
-  //skyStep = 0.11 = 3 minutes of gameplay
-
-  //240 at 0.5/sec = 8 minutes = setInterval 2000ms
-  //240 at 1/sec = 4 minutes = 1000ms
-  //240 at 2/sec = 2 minutes = 500ms
-  //240 at 4/sec = 1 minute = 250ms
-
-
-
-
-
+  //skyStep = 0.11 = about 3 minutes of gameplay
 function startMainGame(gameLength, miniGameInterval, miniGameLength)
 {
   console.log('Main game starting!');

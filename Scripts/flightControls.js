@@ -364,10 +364,10 @@ function clampRoll(){
   }
 }
 
+//This function's use has somewhat depcracated now that the scenery's route is on tracks
 function clampPitch(){
   //Called from Update (every 50ms)
 
-  //This function's use has depcracated now that the scenery's route is on tracks
 
   // if (groundPitch > 200)
   // {

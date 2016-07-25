@@ -380,7 +380,7 @@ function resetEverything(){
   skyPitch = -280;
   //groundPitch = 300;
   inAtmosphere = true;
-  endGame = false;
+
   skyRotate = 0;
 
   $sky.css({
@@ -398,6 +398,8 @@ function resetEverything(){
       $flightMeterInner.css({
         'width' : flightMeterFill+'vw'
       });
+
+    endGame = false;
 }
 
 //##########

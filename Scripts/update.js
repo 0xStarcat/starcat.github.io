@@ -5,7 +5,9 @@ $(document).ready(function(){
 });
 
 
-
+//#######
+//The all-mighty update function set at 50ms
+//#######
   var update = function(){
 
     trackCoordinates(); //flightControls.js
@@ -28,7 +30,10 @@ $(document).ready(function(){
     startLanding();
   }
 
-
+//######
+//Don't want update to be called when not in flying game
+//Pass value of 1 to toggle to start, 0 to stop.
+//######
   function startUpdate(toggle){
     console.log('update Starting!');
 
