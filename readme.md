@@ -69,6 +69,6 @@ newspaper from http://clipartkid.com licensed free without attribution
 
 Re-entry diagrams from http://quarkology.com/12-physics/92-space/images/92D-re-entry.png
 
-Inspiration: https://www.youtube.com/watch?v=J8AisTXgAGA
+Inspiration: https://www.youtube.com/watch?v=kdtIjnpeolE
 
 
