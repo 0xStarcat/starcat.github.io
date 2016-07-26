@@ -50,7 +50,6 @@ function miniGameConsequence(result){
         'opacity' : '0'
       })
     // Remove penalty from list
-      //penaltyFunctions.splice(chosenPenalty, 1);
       penalties.splice(chosenPenalty, 1);
       console.log(penalties);
     }, 500)

@@ -28,6 +28,11 @@ var pictureIndex = -1;
 
 var quoteIndex = -1;
 
+var searchNation = undefined;
+var inputLength = undefined;
+var isTyping = false;
+var typingTimeout = undefined;
+
 
 
 var newAstronaut = undefined;
@@ -215,25 +220,83 @@ function createCharacterEventListeners(){
     $charNationality.val('');
   })
 
-  $charNationality.on('keypress', function(){
-    var searchNation = $charNationality.val().toUpperCase();
-    var inputLength = searchNation.length;
+  $charNationality.on('keydown', function(){
+    clearTimeout(typingTimeout);
+    isTyping = true;
+    searchNation = $charNationality.val();
+    searchNation = searchNation.toLowerCase();
+    inputLength = searchNation.length;
 
-    for (var i = 0; i < flagPictures.length; i++)
-    {
-        console.log (searchNation +" compared with " + flagPictures[i].substr(0, (inputLength)));
 
-      if (searchNation === flagPictures[i].substr(0, 1))
-      {
-        ;
-        var nation = flagPictures[i];
-        flagPicturesIndex = i;
-        $flagPicture.attr('src', 'images/flags64/'+flagPictures[flagPicturesIndex])
-        nation = nation.replace(/flag/, '').replace(/-/g, ' ').replace('.png', '');
-        $charNationality.val(nation);
-        break
-      }
+    typingTimeout = setTimeout(function(){
+      isTyping = false;
+    }, 150)
+
+  });
+
+var searchNations = function(){
+
+
+         for (var i = 0; i < flagPictures.length; i++)
+        {
+            console.log (searchNation + " compared with " + flagPictures[i].replace(/-/g,' ').substr(0, (inputLength)));
+
+          if (searchNation === flagPictures[i].replace(/-/g,' ').substr(0, inputLength).toLowerCase())
+          {
+
+            var nation = flagPictures[i];
+            flagPicturesIndex = i;
+            $flagPicture.attr('src', 'images/flags64/'+flagPictures[flagPicturesIndex])
+            nation = nation.replace(/flag/, '').replace(/-/g, ' ').replace('.png', '');
+            $charNationality.val(nation);
+
+            $('.charNationality').css({
+              'background': 'rgba(155, 222, 255, 0.9)'
+            });
+
+            break;
+
+          } else {
+            console.log('hello bob');
+            $('.charNationality').css({
+              'background': 'red'
+            });
+          }
+        }
     }
+
+  $charNationality.on('keyup', function(e){
+
+    if (e.keycode === 8 && inputLength === 0 || e.which === 8 && inputLength === 0)
+    {
+      return;
+    } else if (e.keycode === 8 || e.which === 8)
+    {
+      searchNation = $charNationality.val();
+      inputLength = searchNation.length;
+    }
+
+    if (inputLength === 0)
+    {
+      searchNation = $charNationality.val();
+      inputLength = searchNation.length;
+      console.log(searchNation);
+
+      isTyping = false;
+      searchNations();
+    }
+
+    setTimeout(function(){
+      if (!isTyping)
+      {
+
+        searchNations();
+      }
+
+
+    }, 250)
+
+
 
   })
   $charBackground.on('click', function(){
