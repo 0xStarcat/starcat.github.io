@@ -87,7 +87,7 @@ $(document).ready(function(){
 
 function loadStartScreen(){
 
-  var $startScreenHTML = $('<div id="startScreenContainer"><div id="startScreenGradient"><img id="startScreenImage" src=""></div><div id="startScreenTitle">Game Title</div><div id="startFlexBox"><div class="thirds" id="firstThird"><button class= "screenButton" id="optionsButton">Default Controls</button></div><div class="thirds" id="secondThird"><button class= "screenButton" id="startButton">Start</button></div><div class="thirds" id="finalThird"><button class= "screenButton" id="creditsButton">Credits</button></div></div></div></div>');
+  var $startScreenHTML = $('<div id="startScreenContainer"><div id="startScreenGradient"><img id="startScreenImage" src=""></div><div id="startScreenTitle">Shuttle Command</div><div id="startFlexBox"><div class="thirds" id="firstThird"><button class= "screenButton" id="optionsButton">Default Controls</button></div><div class="thirds" id="secondThird"><button class= "screenButton" id="startButton">Start</button></div><div class="thirds" id="finalThird"><button class= "screenButton" id="creditsButton">Credits</button></div></div></div></div>');
   $('body').append($startScreenHTML);
   $startButton = $('#startButton');
   $optionsButton = $('#optionsButton');

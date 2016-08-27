@@ -42,7 +42,13 @@ var astronaut3 = undefined;
 var astronaut4 = undefined;
 var astronautIndex = 0;
 
-
+var astronautName = undefined;
+var astronautNationality = undefined;
+var astronautFlag = undefined;
+var astronautAge = undefined;
+var astronautBackground = undefined;
+var astronautQuote = undefined;
+var astronautPicture = undefined;
 
 
 
@@ -347,6 +353,7 @@ var searchNations = function(){
     //var parsedFlag = String('images/flags64/'+String($charNationality.val()+'-flag.png').replace(/\s/g,''));
     var parsedFlag = String('images/flags64/'+flagPictures[flagPicturesIndex]);
     console.log(parsedFlag);
+
     newAstronaut = new NewCharacter($charName.val(), $charNationality.val(), parsedFlag, $charAge.val(), $charBackground.val(), $charQuote.val(), "")
     //console.log(newAstronaut);
     switch (pageNumber)
